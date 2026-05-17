@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dentista a Cremona | Odontoiatria | Stomatologico Cremonese</title>
+  <meta name="description" content="Dentista specializzato a Cremona. Implantologia, ortodonzia, sbiancamento, chirurgia orale. Prenota online. Piazza Libertà 24." />
+  <link rel="canonical" href="https://www.stomatologicocremonese.com/specialita/odontoiatria/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dentista a Cremona | Odontoiatria | Stomatologico Cremonese" />
+  <meta property="og:description" content="Dentista specializzato a Cremona. Implantologia, ortodonzia, sbiancamento, chirurgia orale. Prenota online." />
+  <meta property="og:url" content="https://www.stomatologicocremonese.com/specialita/odontoiatria/" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Stomatologico Cremonese — Odontoiatria",
+      "description": "Studio odontoiatrico a Cremona: implantologia, ortodonzia, sbiancamento dentale, chirurgia orale, protesi e pedodonzia.",
+      "url": "https://www.stomatologicocremonese.com/specialita/odontoiatria/",
+      "telephone": "+39 0372 000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Piazza Libertà 24",
+        "addressLocality": "Cremona",
+        "addressRegion": "CR",
+        "postalCode": "26100",
+        "addressCountry": "IT"
+      },
+      "openingHours": ["Mo-Fr 08:00-19:00", "Sa 09:00-13:00"],
+      "availableService": [
+        {"@type": "MedicalProcedure", "name": "Visita Odontoiatrica e Igiene Professionale"},
+        {"@type": "MedicalProcedure", "name": "Odontoiatria Conservativa"},
+        {"@type": "MedicalProcedure", "name": "Implantologia Dentale"},
+        {"@type": "MedicalProcedure", "name": "Ortodonzia Fissa e Mobile"},
+        {"@type": "MedicalProcedure", "name": "Sbiancamento Dentale"},
+        {"@type": "MedicalProcedure", "name": "Chirurgia Orale"},
+        {"@type": "MedicalProcedure", "name": "Protesi Dentale"},
+        {"@type": "MedicalProcedure", "name": "Pedodonzia"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr.ssa Elena Ferrari",
+      "description": "Specialista in Odontoiatria e Implantologia con oltre 12 anni di esperienza clinica.",
+      "medicalSpecialty": "Dentistry",
+      "worksFor": {
+        "@type": "MedicalClinic",
+        "name": "Stomatologico Cremonese",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Piazza Libertà 24",
+          "addressLocality": "Cremona",
+          "postalCode": "26100",
+          "addressCountry": "IT"
+        }
+      }
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER
+  ============================================================ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consenso cookie" aria-describedby="cookie-banner-text" hidden>
+    <div class="cookie-banner__inner container">
+      <p id="cookie-banner-text" class="cookie-banner__text">
+        Questo sito utilizza cookie tecnici e, previo consenso, cookie analitici e di profilazione.
+        Consulta la nostra <a href="/privacy-policy/">Privacy Policy</a> e la
+        <a href="/cookie-policy/">Cookie Policy</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button id="cookie-accept-all" class="btn btn--primary btn--sm">Accetta Tutti</button>
+        <button id="cookie-accept-necessary" class="btn btn--outline btn--sm">Solo Necessari</button>
+        <a href="/cookie-policy/" class="btn btn--ghost btn--sm">Gestisci Preferenze</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+
+        <!-- Logo -->
+        <a href="/" class="site-header__logo" aria-label="Stomatologico Cremonese - Homepage">
+          <span class="site-header__logo-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="#2E7D32"/>
+              <path d="M12 16c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.4 5.2-3.6 6.7L20 32l-4.4-9.3C13.4 21.2 12 18.8 12 16z" fill="#fff"/>
+              <circle cx="20" cy="16" r="3" fill="#2E7D32"/>
+            </svg>
+          </span>
+          <span class="site-header__logo-text">
+            <strong>Stomatologico</strong> Cremonese
+          </span>
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <button class="site-header__menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Apri menu di navigazione">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- Main navigation -->
+        <nav class="main-nav" id="main-nav" role="navigation" aria-label="Navigazione principale">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a href="/" class="main-nav__link">Home</a></li>
+            <li class="main-nav__item main-nav__item--has-dropdown">
+              <a href="/specialita/" class="main-nav__link main-nav__link--active" aria-current="page">Specialità</a>
+              <ul class="main-nav__dropdown">
+                <li><a href="/specialita/odontoiatria/" class="main-nav__dropdown-link">Odontoiatria</a></li>
+                <li><a href="/specialita/otorinolaringoiatria/" class="main-nav__dropdown-link">Otorinolaringoiatria</a></li>
+                <li><a href="/specialita/medicina-estetica/" class="main-nav__dropdown-link">Medicina Estetica</a></li>
+              </ul>
+            </li>
+            <li class="main-nav__item"><a href="/medici/" class="main-nav__link">I Nostri Medici</a></li>
+            <li class="main-nav__item"><a href="/chi-siamo/" class="main-nav__link">Chi Siamo</a></li>
+            <li class="main-nav__item"><a href="/contatti/" class="main-nav__link">Contatti</a></li>
+          </ul>
+          <a href="/prenota/" class="btn btn--primary main-nav__cta">Prenota Visita</a>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         BREADCRUMB
+    ============================================================ -->
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+      <div class="container">
+        <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" class="breadcrumb__link" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li class="breadcrumb__item" aria-hidden="true"><span class="breadcrumb__separator">›</span></li>
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/specialita/" class="breadcrumb__link" itemprop="item"><span itemprop="name">Specialità</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li class="breadcrumb__item" aria-hidden="true"><span class="breadcrumb__separator">›</span></li>
+          <li class="breadcrumb__item breadcrumb__item--current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Odontoiatria</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="page-hero page-hero--odonto" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="page-hero__content">
+          <span class="page-hero__badge">Specialità Medica</span>
+          <h1 class="page-hero__title" id="hero-title">Odontoiatria a Cremona</h1>
+          <p class="page-hero__subtitle">
+            Al Centro Stomatologico Cremonese la Dr.ssa Elena Ferrari offre cure dentali complete per tutta la famiglia: dall'igiene professionale all'implantologia, dall'ortodonzia alla chirurgia orale. Un approccio moderno, preciso e rispettoso del paziente, in un ambiente confortevole e tecnologicamente avanzato.
+          </p>
+          <div class="page-hero__actions">
+            <a href="/prenota/?specialty=odontoiatria&doctor=dr-ferrari" class="btn btn--primary btn--lg">Prenota con la Dr.ssa Ferrari</a>
+            <a href="/contatti/" class="btn btn--outline btn--lg">Contattaci</a>
+          </div>
+          <div class="page-hero__meta">
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Piazza Libertà 24, Cremona
+            </span>
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Visite su appuntamento
+            </span>
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Tel. 0372 000000
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section class="services-section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="services-title">I Nostri Servizi Odontoiatrici</h2>
+          <p class="section-subtitle">Cure dentali complete per bambini e adulti, con tecnologie digitali all'avanguardia per diagnosi precise e trattamenti confortevoli.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card" aria-labelledby="svc-visita-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-visita-title">Visita Odontoiatrica e Igiene</h3>
+            <p class="service-card__desc">Visita di controllo completa con esame obiettivo del cavo orale, delle gengive e dei tessuti molli. Igiene professionale con rimozione di placca e tartaro tramite ultrasuoni e lucidatura dei denti. Consigliata ogni sei mesi.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=visita" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-conserv-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-conserv-title">Odontoiatria Conservativa</h3>
+            <p class="service-card__desc">Trattamento delle carie con otturazioni estetiche in composito del colore del dente, inlay e onlay in ceramica. Obiettivo: preservare il più possibile la struttura dentale naturale con materiali biocompatibili di ultima generazione.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=conservativa" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-implanto-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-implanto-title">Implantologia Dentale</h3>
+            <p class="service-card__desc">Sostituzione permanente di uno o più denti mancanti con impianti in titanio osteointegrati e corone in ceramica. Tecnica minimamente invasiva con pianificazione digitale 3D e posizionamento guidato per massima precisione e comfort post-operatorio.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=implantologia" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-ortho-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-ortho-title">Ortodonzia Fissa e Mobile</h3>
+            <p class="service-card__desc">Correzione di malocclusioni, affollamenti dentali e problemi di mordente per bambini, adolescenti e adulti. Brackets tradizionali in metallo o ceramica, apparecchi mobili e allineatori trasparenti (invisalign-like) per risultati estetici e funzionali duraturi.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=ortodonzia" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-sbianc-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1M4.22 4.22l.71.71m12.73 12.73l.71.71M3 12h1m16 0h1M4.22 19.78l.71-.71M18.36 5.64l.71-.71"/><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-sbianc-title">Sbiancamento Dentale</h3>
+            <p class="service-card__desc">Trattamento professionale per sbiancare i denti in modo sicuro ed efficace. Disponibile in due modalità: sbiancamento in studio con lampada LED ad alta intensità (risultati immediati in una seduta) o sbiancamento domiciliare con mascherine personalizzate e gel sbiancante.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=sbiancamento" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-chirorale-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-chirorale-title">Chirurgia Orale</h3>
+            <p class="service-card__desc">Estrazioni semplici e chirurgiche, rimozione di denti del giudizio inclusi o semi-inclusi, apicectomie, frenulectomie e altri piccoli interventi sul cavo orale. Eseguiti in anestesia locale con protocolli post-operatori chiari per una guarigione rapida.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=chirurgia-orale" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-protesi-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-protesi-title">Protesi Dentale</h3>
+            <p class="service-card__desc">Riabilitazione protesica fissa (corone, ponti in ceramica o zirconia) e mobile (protesi totale o parziale rimovibile). Progettazione digitale CAD/CAM per protesi esteticamente perfette, resistenti e confortevoli, realizzate in collaborazione con laboratori odontotecnici qualificati.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=protesi" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-pedo-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-pedo-title">Pedodonzia</h3>
+            <p class="service-card__desc">Cure odontoiatriche dedicate ai bambini dai 2 ai 14 anni. Prevenzione, sigillature dei solchi, trattamento delle carie nei denti da latte e permanenti in eruzione, controllo dell'igiene orale. Approccio comunicativo e rassicurante per vivere la visita dal dentista senza ansie.</p>
+            <a href="/prenota/?specialty=odontoiatria&service=pedodonzia" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DOCTOR SECTION
+    ============================================================ -->
+    <section class="doctor-section" aria-labelledby="doctor-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="doctor-title">La Tua Specialista in Odontoiatria</h2>
+          <p class="section-subtitle">Un team di professionisti al tuo servizio, con esperienza, aggiornamento continuo e attenzione al paziente.</p>
+        </div>
+
+        <div class="doctor-card doctor-card--featured">
+          <div class="doctor-card__avatar" aria-hidden="true">
+            <div class="doctor-card__avatar-placeholder">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__header">
+              <h3 class="doctor-card__name">Dr.ssa Elena Ferrari</h3>
+              <span class="doctor-card__specialty">Specialista in Odontoiatria e Implantologia</span>
+            </div>
+            <p class="doctor-card__bio">
+              La Dr.ssa Elena Ferrari è medico chirurgo con specializzazione in Odontoiatria e Protesi Dentaria, con oltre 12 anni di esperienza nel trattamento di pazienti adulti e in età pediatrica. Laureata con lode presso l'Università degli Studi di Pavia e specializzata all'Università di Milano, ha successivamente approfondito le tecniche di implantologia avanzata e di ortodonzia invisibile in percorsi di formazione internazionale. Nel corso della sua carriera ha sviluppato una particolare sensibilità verso i pazienti con fobia del dentista, adottando tecniche di comunicazione e gestione dell'ansia che rendono ogni seduta il più confortevole possibile. Membro attivo della Società Italiana di Ortodonzia (SIDO) e dell'Accademia Italiana di Implantologia (AII), si aggiorna costantemente partecipando a congressi nazionali e internazionali.
+            </p>
+            <ul class="doctor-card__credentials" aria-label="Credenziali del medico">
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Laurea in Medicina e Chirurgia — Università degli Studi di Pavia (lode)
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Specializzazione in Odontoiatria e Protesi Dentaria — Università degli Studi di Milano
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Master in Implantologia Avanzata e Chirurgia Guidata
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Membro della Società Italiana di Ortodonzia (SIDO)
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Membro dell'Accademia Italiana di Implantologia (AII)
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Oltre 12 anni di esperienza clinica
+              </li>
+            </ul>
+            <a href="/prenota/?specialty=odontoiatria&doctor=dr-ferrari" class="btn btn--primary">Prenota con la Dr.ssa Ferrari</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING TABLE
+    ============================================================ -->
+    <section class="pricing-section" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="pricing-title">Tariffe delle Prestazioni Odontoiatriche</h2>
+          <p class="section-subtitle">Prezzi chiari e trasparenti. Prima di qualsiasi trattamento viene sempre redatto un preventivo personalizzato.</p>
+        </div>
+
+        <div class="pricing-table-wrapper" role="region" aria-label="Tabella dei prezzi">
+          <table class="pricing-table">
+            <caption class="pricing-table__caption">Listino prezzi prestazioni odontoiatriche</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="pricing-table__th pricing-table__th--service">Prestazione</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--desc">Descrizione</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--price">Tariffa</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--action">Prenota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Visita Odontoiatrica</td>
+                <td class="pricing-table__desc">Prima visita con esame obiettivo completo del cavo orale, consulenza e piano di trattamento</td>
+                <td class="pricing-table__price"><span class="price-tag">€ 50</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=odontoiatria&service=visita" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row pricing-table__row--alt">
+                <td class="pricing-table__service">Igiene Professionale</td>
+                <td class="pricing-table__desc">Pulizia professionale con ablazione del tartaro, lucidatura e fluoroprofilassi</td>
+                <td class="pricing-table__price"><span class="price-tag">€ 80</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=odontoiatria&service=igiene" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Impianto Singolo</td>
+                <td class="pricing-table__desc">Inserimento impianto in titanio + corona in ceramica/zirconia (prezzo per elemento)</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 900</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=odontoiatria&service=implantologia" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row pricing-table__row--alt">
+                <td class="pricing-table__service">Otturazione</td>
+                <td class="pricing-table__desc">Restauro in composito per trattamento di carie (costo variabile per numero di superfici)</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 60</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=odontoiatria&service=conservativa" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Sbiancamento</td>
+                <td class="pricing-table__desc">Sbiancamento professionale in studio con lampada LED o kit domiciliare personalizzato</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 250</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=odontoiatria&service=sbiancamento" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Prezzi indicativi, IVA inclusa. Viene sempre fornito un preventivo dettagliato e scritto prima di iniziare qualsiasi trattamento. Per informazioni su convenzioni e finanziamenti contattare la reception.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faq-title">Domande Frequenti sull'Odontoiatria</h2>
+          <p class="section-subtitle">Risposte alle domande più comuni dei nostri pazienti sulle cure dentali.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-1">
+              Con quale frequenza dovrei fare la pulizia dei denti dal dentista?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-1" hidden>
+              <p>Per la maggior parte dei pazienti si raccomanda una seduta di igiene professionale ogni sei mesi. Tuttavia, in presenza di una predisposizione alla formazione di tartaro, gengive sensibili, parodontite in fase attiva o altri fattori di rischio (fumo, diabete, gravidanza), la Dr.ssa Ferrari potrebbe consigliare controlli più frequenti, generalmente ogni tre o quattro mesi. Un programma personalizzato di igiene orale domiciliare integra e potenzia l'effetto delle sedute in studio.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-2">
+              L'implantologia dentale fa male? Quanto dura l'intervento?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-2" hidden>
+              <p>L'inserimento di un impianto dentale viene eseguito in anestesia locale e nella stragrande maggioranza dei casi è praticamente indolore durante la procedura. La durata dell'intervento varia da 20 a 60 minuti a seconda della complessità del caso. Nelle ore successive si può avvertire un modesto dolore gestibile con comuni antidolorifici. L'osteointegrazione (fusione dell'impianto con l'osso) richiede dai 2 ai 4 mesi, dopodiché viene applicata la corona definitiva. Con una corretta igiene orale, un impianto ben posizionato può durare decenni.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-3">
+              A che età è consigliabile iniziare un trattamento ortodontico?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-3" hidden>
+              <p>La prima visita ortodontica è consigliata intorno ai 6-7 anni, quando i denti permanenti iniziano a comparire. Un intervento precoce può correggere problemi scheletrici e di spazio prima che diventino più complessi. Il trattamento con apparecchio fisso inizia solitamente tra i 10 e i 14 anni, ma l'ortodonzia per adulti è oggi molto diffusa grazie agli allineatori trasparenti, che correggono discretamente i denti senza interferire con la vita sociale e professionale. Non esiste un limite di età: ciò che conta è la salute delle gengive e dell'osso di supporto.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-4">
+              Lo sbiancamento dentale è sicuro? Rende i denti più sensibili?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-4" hidden>
+              <p>Lo sbiancamento professionale eseguito in uno studio odontoiatrico è sicuro se effettuato su denti sani con gengive in buona salute. La Dr.ssa Ferrari esegue sempre una visita preliminare per valutare l'idoneità al trattamento. Una sensibilità temporanea ai cibi freddi o caldi nelle 24-48 ore successive è normale e si risolve spontaneamente. Lo sbiancamento non danneggia lo smalto se condotto con concentrazioni di perossido adeguate e con protezione delle gengive. I risultati durano mediamente 1-3 anni, in funzione delle abitudini alimentari e del fumo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-5">
+              Cosa fare in caso di dolore al dente o ascesso? Quando è urgente?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-5" hidden>
+              <p>Un dolore dentale intenso, pulsante, accompagnato da gonfiore alla guancia, febbre o difficoltà ad aprire la bocca costituisce un'urgenza odontoiatrica che richiede una valutazione nel più breve tempo possibile. Nel frattempo è possibile assumere un antidolorifico da banco (ibuprofene o paracetamolo) rispettando le dosi consigliate. Evitare impacchi caldi sull'area, che potrebbero favorire la diffusione dell'infezione. Lo Stomatologico Cremonese riserva slot per urgenze: chiamate il nostro numero per ricevere assistenza prioritaria nella stessa giornata o il giorno successivo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA SECTION
+    ============================================================ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-box__content">
+            <h2 class="cta-box__title" id="cta-title">Prenota la tua Visita Odontoiatrica</h2>
+            <p class="cta-box__text">Hai bisogno di una visita di controllo, di un trattamento specifico o di un preventivo per l'implantologia? La Dr.ssa Elena Ferrari ti accoglierà con professionalità. Prenota online in pochi secondi o chiamaci.</p>
+          </div>
+          <div class="cta-box__actions">
+            <a href="/prenota/?specialty=odontoiatria&doctor=dr-ferrari" class="btn btn--white btn--lg">Prenota con la Dr.ssa Ferrari</a>
+            <a href="tel:+390372000000" class="btn btn--outline-white btn--lg">Chiama il 0372 000000</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to specialties -->
+    <div class="back-link-wrapper">
+      <div class="container">
+        <a href="/specialita/" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Torna alle specialità
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <!-- Col 1: Info clinica -->
+        <div class="site-footer__col site-footer__col--about">
+          <a href="/" class="site-footer__logo" aria-label="Stomatologico Cremonese - Homepage">
+            <span class="site-header__logo-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#2E7D32"/>
+                <path d="M12 16c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.4 5.2-3.6 6.7L20 32l-4.4-9.3C13.4 21.2 12 18.8 12 16z" fill="#fff"/>
+                <circle cx="20" cy="16" r="3" fill="#2E7D32"/>
+              </svg>
+            </span>
+            <span><strong>Stomatologico</strong> Cremonese</span>
+          </a>
+          <p class="site-footer__about-text">Centro medico specialistico a Cremona. Offriamo cure di alta qualità in un ambiente accogliente e professionale dal 1998.</p>
+          <address class="site-footer__address">
+            <p>Piazza Libertà 24<br />26100 Cremona (CR)</p>
+            <p><a href="tel:+390372000000">Tel. 0372 000000</a></p>
+            <p><a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a></p>
+          </address>
+        </div>
+
+        <!-- Col 2: Specialità -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Specialità</h3>
+          <ul class="site-footer__links">
+            <li><a href="/specialita/odontoiatria/">Odontoiatria</a></li>
+            <li><a href="/specialita/otorinolaringoiatria/">Otorinolaringoiatria</a></li>
+            <li><a href="/specialita/medicina-estetica/">Medicina Estetica</a></li>
+            <li><a href="/specialita/">Tutte le Specialità</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Informazioni -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Informazioni</h3>
+          <ul class="site-footer__links">
+            <li><a href="/chi-siamo/">Chi Siamo</a></li>
+            <li><a href="/medici/">I Nostri Medici</a></li>
+            <li><a href="/prenota/">Prenota una Visita</a></li>
+            <li><a href="/contatti/">Contatti e Orari</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Legal</h3>
+          <ul class="site-footer__links">
+            <li><a href="/privacy-policy/">Informativa Privacy</a></li>
+            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="/note-legali/">Note Legali</a></li>
+          </ul>
+          <div class="site-footer__orari">
+            <h4 class="site-footer__orari-title">Orari di ricevimento</h4>
+            <p>Lun–Ven: 08:00–19:00</p>
+            <p>Sabato: 09:00–13:00</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">© <span id="footer-year">2024</span> Stomatologico Cremonese S.r.l. — P.IVA 01234567890 — Tutti i diritti riservati.</p>
+        <p class="site-footer__disclaimer">Le informazioni contenute in questo sito hanno carattere puramente informativo e non sostituiscono il parere del medico.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
