@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Cookie Policy | Stomatologico Cremonese</title>
+  <meta name="description" content="Cookie Policy dello Stomatologico Cremonese. Informazioni sui cookie utilizzati dal sito, come gestirli e come esercitare i tuoi diritti.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://www.stomatologicocremonese.com/cookie-policy/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* ── Page-specific additions ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:    #2E7D32;
+      --green-mid:     #388E3C;
+      --green-light:   #4CAF50;
+      --green-xlight:  #E8F5E9;
+      --green-darkest: #1B5E20;
+      --white:         #ffffff;
+      --gray-50:       #FAFAFA;
+      --gray-100:      #F5F5F5;
+      --gray-200:      #EEEEEE;
+      --gray-400:      #BDBDBD;
+      --gray-600:      #757575;
+      --gray-800:      #424242;
+      --gray-900:      #212121;
+      --font:          'Inter', system-ui, -apple-system, sans-serif;
+      --radius:        12px;
+      --radius-sm:     8px;
+      --shadow:        0 4px 24px rgba(0,0,0,0.08);
+      --shadow-md:     0 8px 32px rgba(0,0,0,0.12);
+      --transition:    0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--green-dark); color: var(--white); border-color: var(--green-dark); }
+    .btn-primary:hover { background: var(--green-darkest); border-color: var(--green-darkest); }
+    .btn-outline { background: transparent; color: var(--green-dark); border-color: var(--green-dark); }
+    .btn-outline:hover { background: var(--green-xlight); }
+
+    /* ── HEADER / NAV ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-logo-text span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gray-600);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-item { position: relative; }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 14px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-800);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font);
+    }
+    .nav-link:hover, .nav-link:focus-visible { background: var(--green-xlight); color: var(--green-dark); outline: none; }
+    .nav-link svg { transition: transform var(--transition); }
+    .nav-item:hover .nav-link svg,
+    .nav-item:focus-within .nav-link svg { transform: rotate(180deg); }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 240px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all var(--transition);
+      z-index: 100;
+    }
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-800);
+      transition: all var(--transition);
+    }
+    .dropdown-link:hover { background: var(--green-xlight); color: var(--green-dark); }
+    .dropdown-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--green-xlight);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    .hamburger:hover { background: var(--green-xlight); }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gray-800);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .nav-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-open .hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Page Hero (legal) ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-darkest) 100%);
+      padding: 56px 0 52px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .page-hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .page-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 14px 0;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gray-600);
+      flex-wrap: wrap;
+    }
+    .breadcrumb-list a { color: var(--green-dark); }
+    .breadcrumb-list a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--gray-400); }
+
+    /* ── Main Content Layout ── */
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      padding: 56px 0 80px;
+      align-items: start;
+    }
+
+    /* ── Sticky TOC sidebar ── */
+    .toc-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .toc-list a {
+      display: block;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-700, #616161);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid transparent;
+      transition: all var(--transition);
+      line-height: 1.4;
+    }
+    .toc-list a:hover {
+      background: var(--green-xlight);
+      color: var(--green-dark);
+      border-left-color: var(--green-dark);
+    }
+    .toc-list a.active {
+      background: var(--green-xlight);
+      color: var(--green-dark);
+      border-left-color: var(--green-dark);
+    }
+
+    /* ── Article body ── */
+    .legal-article h2 {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      margin-top: 48px;
+      padding-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .legal-article h2:first-child { margin-top: 0; }
+    .h2-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--green-xlight);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legal-article h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .legal-article p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--gray-800);
+      margin-bottom: 16px;
+    }
+
+    .legal-article ul, .legal-article ol {
+      margin-bottom: 16px;
+      padding-left: 0;
+    }
+    .legal-article li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray-800);
+      padding: 4px 0 4px 24px;
+      position: relative;
+    }
+    .legal-article ul li::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+    .legal-article ol {
+      counter-reset: list-counter;
+    }
+    .legal-article ol li {
+      counter-increment: list-counter;
+    }
+    .legal-article ol li::before {
+      content: counter(list-counter) ".";
+      position: absolute;
+      left: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .legal-article a {
+      color: var(--green-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .legal-article a:hover { color: var(--green-darkest); }
+
+    .legal-article strong { font-weight: 600; color: var(--gray-900); }
+
+    .legal-article .divider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 40px 0;
+    }
+
+    /* ── Info box ── */
+    .info-box {
+      background: var(--green-xlight);
+      border: 1px solid rgba(46,125,50,0.2);
+      border-left: 4px solid var(--green-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .info-box p { margin-bottom: 0; font-size: 14px; }
+    .info-box p + p { margin-top: 8px; }
+
+    .warning-box {
+      background: #FFF8E1;
+      border: 1px solid #FFE082;
+      border-left: 4px solid #F9A825;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .warning-box p { margin-bottom: 0; font-size: 14px; color: #5D4037; }
+
+    /* ── Cookie table ── */
+    .cookie-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+    }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .cookie-table thead tr {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+    .cookie-table th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .cookie-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-800);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .cookie-table tbody tr:last-child td { border-bottom: none; }
+    .cookie-table tbody tr:nth-child(even) { background: var(--gray-50); }
+    .cookie-table tbody tr:hover { background: var(--green-xlight); }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-tech { background: #E3F2FD; color: #1565C0; }
+    .badge-analytics { background: #FFF3E0; color: #E65100; }
+    .badge-marketing { background: #FCE4EC; color: #AD1457; }
+
+    /* ── Browser instructions ── */
+    .browser-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .browser-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      transition: border-color var(--transition);
+    }
+    .browser-card:hover { border-color: var(--green-light); }
+    .browser-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .browser-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .browser-card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+    }
+    .browser-card a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    /* ── Preferences toggle section ── */
+    .pref-section {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 40px;
+    }
+    .pref-section h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .pref-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--gray-200);
+      gap: 20px;
+    }
+    .pref-row:last-of-type { border-bottom: none; }
+    .pref-info h4 { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+    .pref-info p { font-size: 13px; color: var(--gray-600); margin-bottom: 0; line-height: 1.5; }
+    .toggle-wrap { flex-shrink: 0; }
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: var(--gray-400);
+      border-radius: 26px;
+      transition: background var(--transition);
+    }
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 3px;
+      bottom: 3px;
+      background: var(--white);
+      border-radius: 50%;
+      transition: transform var(--transition);
+    }
+    .toggle input:checked + .toggle-slider { background: var(--green-dark); }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(22px); }
+    .toggle input:disabled + .toggle-slider { cursor: not-allowed; opacity: 0.7; }
+    .pref-actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Update info ── */
+    .update-box {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .update-box svg { flex-shrink: 0; margin-top: 2px; }
+    .update-box p { font-size: 14px; color: var(--gray-700, #616161); margin-bottom: 0; }
+    .update-box p strong { font-weight: 600; color: var(--gray-900); }
+
+    /* ── Contact box ── */
+    .contact-box {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-darkest) 100%);
+      border-radius: var(--radius);
+      padding: 32px;
+      color: var(--white);
+      margin-top: 40px;
+    }
+    .contact-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .contact-box p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+    .contact-box a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--gray-900);
+      color: rgba(255,255,255,0.75);
+      padding-top: 72px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+    .footer-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+      color: rgba(255,255,255,0.7);
+    }
+    .social-link:hover { background: var(--green-dark); color: var(--white); }
+    .footer-col-title {
+      font-size: 13px; font-weight: 700; color: var(--white);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item {
+      display: flex; gap: 10px; font-size: 14px;
+      color: rgba(255,255,255,0.6); margin-bottom: 12px; align-items: flex-start;
+    }
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.6); transition: color var(--transition); }
+    .footer-contact-item a:hover { color: var(--white); }
+    .hours-row { display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); padding: 4px 0; }
+    .hours-row span:first-child { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom-text { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      font-size: 13px; color: rgba(255,255,255,0.45); transition: color var(--transition);
+    }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* ── Cookie Banner ── */
+    #cookie-banner {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: var(--white);
+      border-top: 2px solid var(--green-light);
+      box-shadow: 0 -4px 32px rgba(0,0,0,0.12);
+      padding: 20px 0;
+    }
+    #cookie-banner.show { display: block; }
+    .cookie-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cookie-text { flex: 1; font-size: 14px; color: var(--gray-800); min-width: 240px; }
+    .cookie-text a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cookie-actions .btn { padding: 10px 18px; font-size: 14px; }
+    .btn-cookie-accept { background: var(--green-dark); color: var(--white); border: 2px solid var(--green-dark); }
+    .btn-cookie-accept:hover { background: var(--green-darkest); }
+    .btn-cookie-necessary { background: transparent; color: var(--gray-800); border: 2px solid var(--gray-400); }
+    .btn-cookie-necessary:hover { background: var(--gray-100); }
+    .btn-cookie-customize { background: transparent; color: var(--green-dark); border: 2px solid var(--green-light); }
+    .btn-cookie-customize:hover { background: var(--green-xlight); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .legal-layout { grid-template-columns: 1fr; }
+      .toc-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu, .nav-actions .btn { display: none; }
+      .hamburger { display: flex; }
+      .nav-menu.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+        background: var(--white);
+        padding: 24px; gap: 4px; overflow-y: auto;
+        border-top: 1px solid var(--gray-200); z-index: 999;
+      }
+      .nav-menu.open .nav-link { padding: 12px 16px; font-size: 17px; border-radius: var(--radius-sm); }
+      .nav-menu.open .dropdown {
+        position: static; opacity: 1; visibility: visible; transform: none;
+        box-shadow: none; border: none;
+        border-left: 3px solid var(--green-light);
+        border-radius: 0; padding-left: 16px; margin-top: 4px;
+      }
+      .browser-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cookie-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .footer-bottom-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    }
+
+    :focus-visible { outline: 3px solid var(--green-light); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Navigazione principale">
+
+        <!-- Logo -->
+        <a href="/" class="nav-logo" aria-label="Stomatologico Cremonese - Homepage">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#E8F5E9"/>
+            <rect x="17" y="9" width="6" height="22" rx="2" fill="#2E7D32"/>
+            <rect x="9" y="17" width="22" height="6" rx="2" fill="#2E7D32"/>
+            <ellipse cx="20" cy="28" rx="4" ry="2.5" fill="#4CAF50" opacity="0.5"/>
+          </svg>
+          <div class="nav-logo-text">
+            Stomatologico Cremonese
+            <span>Poliambulatorio Medico</span>
+          </div>
+        </a>
+
+        <!-- Nav Links -->
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li class="nav-item" role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li class="nav-item" role="none">
+            <button class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-label="Specialità - apri sottomenu">
+              Specialità
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 5L7 9L11 5" stroke="#424242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown" role="menu" aria-label="Specialità mediche">
+              <li role="none">
+                <a href="/pages/specialties/otorinolaringoiatria.html" class="dropdown-link" role="menuitem">
+                  <span class="dropdown-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                      <path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4"/>
+                      <circle cx="12" cy="12" r="1.5" fill="#2E7D32"/>
+                    </svg>
+                  </span>
+                  Otorinolaringoiatria
+                </a>
+              </li>
+              <li role="none">
+                <a href="/pages/specialties/odontoiatria.html" class="dropdown-link" role="menuitem">
+                  <span class="dropdown-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2C9 2 6 4 6 7c0 2 .5 3.5 1 5 .5 2 .5 4 1 6 .3 1.3 1 2 2 2s1.5-.8 2-2c.5-1.2.5-2.5 1-2.5s.5 1.3 1 2.5c.5 1.2 1 2 2 2s1.7-.7 2-2c.5-2 .5-4 1-6 .5-1.5 1-3 1-5 0-3-3-5-6-5z"/>
+                    </svg>
+                  </span>
+                  Odontoiatria
+                </a>
+              </li>
+              <li role="none">
+                <a href="/pages/specialties/medicina-estetica.html" class="dropdown-link" role="menuitem">
+                  <span class="dropdown-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                    </svg>
+                  </span>
+                  Medicina Estetica
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="/pages/chi-siamo.html" class="nav-link" role="menuitem">Chi Siamo</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="/pages/contatti.html" class="nav-link" role="menuitem">Contatti</a>
+          </li>
+        </ul>
+
+        <!-- CTA + Hamburger -->
+        <div class="nav-actions">
+          <a href="/pages/prenota.html" class="btn btn-primary" aria-label="Prenota una visita medica online">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Prenota Visita
+          </a>
+          <button class="hamburger" id="hamburger-btn" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       PAGE HERO
+  ============================================================ -->
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="page-hero-inner">
+        <span class="page-hero-label">Informativa legale</span>
+        <h1 id="hero-title">Cookie Policy</h1>
+        <p>Informazioni complete sui cookie utilizzati da questo sito, in conformità al GDPR (Regolamento UE 2016/679) e al D.Lgs. 196/2003.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BREADCRUMB
+  ============================================================ -->
+  <nav class="breadcrumb" aria-label="Percorso di navigazione">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li class="breadcrumb-sep" aria-hidden="true">›</li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name" aria-current="page">Cookie Policy</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main id="main-content">
+    <div class="container">
+      <div class="legal-layout">
+
+        <!-- ── SIDEBAR TABLE OF CONTENTS ── -->
+        <aside class="toc-sidebar" aria-label="Indice dei contenuti">
+          <p class="toc-title">Indice</p>
+          <nav>
+            <ul class="toc-list" role="list">
+              <li><a href="#cosa-sono">1. Cosa sono i cookie</a></li>
+              <li><a href="#tipologie">2. Tipologie di cookie</a></li>
+              <li><a href="#elenco">3. Elenco dei cookie</a></li>
+              <li><a href="#gestione">4. Come gestire i cookie</a></li>
+              <li><a href="#preferenze">5. Le tue preferenze</a></li>
+              <li><a href="#terze-parti">6. Link a terze parti</a></li>
+              <li><a href="#aggiornamenti">7. Aggiornamenti</a></li>
+              <li><a href="#contatti">8. Contatti</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- ── ARTICLE CONTENT ── -->
+        <article class="legal-article" aria-label="Cookie Policy completa">
+
+          <div class="update-box" role="note" aria-label="Data di aggiornamento">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <p><strong>Ultimo aggiornamento: maggio 2025.</strong> Questa policy è efficace dalla data indicata. Titolare del trattamento: Poliambulatorio Stomatologico Cremonese, Piazza Libertà 24, 26100 Cremona (CR). Contatto privacy: <a href="mailto:privacy@stomatologicocremonese.com">privacy@stomatologicocremonese.com</a>.</p>
+          </div>
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="cosa-sono"><span class="h2-number" aria-hidden="true">1</span> Cosa sono i cookie</h2>
+
+          <p>I cookie sono piccoli file di testo che i siti web visitati dall'utente inviano al suo terminale (computer, smartphone, tablet), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva.</p>
+
+          <p>Grazie ai cookie un sito web ricorda le azioni e le preferenze dell'utente (come, ad esempio, i dati di login, la lingua prescelta, le dimensioni dei caratteri, altre impostazioni di visualizzazione), in modo che non debbano essere indicate nuovamente quando l'utente torna su quel sito o naviga da una pagina all'altra dello stesso.</p>
+
+          <p>I cookie vengono utilizzati per svolgere autenticazioni informatiche, monitoraggio di sessioni e memorizzazione di informazioni riguardanti le attività degli utenti che accedono ad un sito e possono contenere un codice identificativo unico.</p>
+
+          <div class="info-box" role="note">
+            <p><strong>Base giuridica:</strong> Il presente sito web adotta una politica di consenso granulare conforme all'art. 122 del D.Lgs. 196/2003 (come modificato dal D.Lgs. 101/2018), all'art. 6 del Regolamento UE 2016/679 (GDPR) e alle Linee Guida del Garante per la protezione dei dati personali del 10 giugno 2021 in materia di cookie e altri strumenti di tracciamento.</p>
+          </div>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="tipologie"><span class="h2-number" aria-hidden="true">2</span> Tipologie di cookie utilizzati</h2>
+
+          <!-- 2.1 Tecnici -->
+          <h3>2.1 Cookie tecnici e necessari</h3>
+
+          <p>I cookie tecnici sono necessari per il corretto funzionamento del sito web e non richiedono il consenso dell'utente ai sensi dell'art. 122, comma 1, del D.Lgs. 196/2003 e delle Linee Guida del Garante del 2021. Senza questi cookie alcune funzionalità del sito non potrebbero essere erogate correttamente.</p>
+
+          <p>In questa categoria rientrano:</p>
+
+          <ul>
+            <li><strong>Cookie di sessione:</strong> identificano univocamente la sessione di navigazione dell'utente e sono indispensabili per permettere la navigazione sicura e l'accesso alle aree riservate del sito. Si cancellano automaticamente alla chiusura del browser.</li>
+            <li><strong>Token CSRF (Cross-Site Request Forgery):</strong> cookie di sicurezza tecnica che impediscono attacchi di tipo cross-site request forgery proteggendo i moduli di contatto e prenotazione.</li>
+            <li><strong>Memorizzazione del consenso cookie:</strong> cookie che registra le preferenze espresse dall'utente nella scelta dei cookie, evitando che il banner informativo venga mostrato ad ogni visita. Non raccoglie dati personali.</li>
+          </ul>
+
+          <div class="info-box" role="note">
+            <p>I cookie tecnici <strong>non richiedono consenso</strong> e sono sempre attivi. Non è possibile disabilitarli senza compromettere il funzionamento del sito.</p>
+          </div>
+
+          <!-- 2.2 Analitici -->
+          <h3>2.2 Cookie analitici (statistici)</h3>
+
+          <p>I cookie analitici consentono di raccogliere informazioni aggregate sull'utilizzo del sito web da parte degli utenti, al fine di migliorare le prestazioni e l'esperienza di navigazione. Questi cookie <strong>richiedono il consenso preventivo</strong> dell'utente prima di essere installati.</p>
+
+          <p>Questo sito può utilizzare <strong>Google Analytics</strong> (fornito da Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda) per la raccolta di dati statistici anonimi sul traffico. Qualora utilizzato, Google Analytics è configurato con le seguenti misure di protezione:</p>
+
+          <ul>
+            <li>Anonimizzazione dell'indirizzo IP degli utenti (<em>IP anonymization</em>) tramite attivazione della funzione <code>anonymizeIp</code>, in modo che l'indirizzo IP venga troncato prima della memorizzazione;</li>
+            <li>Stipula dell'accordo per il trattamento dei dati (Data Processing Agreement / DPA) con Google, ai sensi dell'art. 28 GDPR;</li>
+            <li>Disabilitazione della funzione di condivisione dei dati con altri prodotti Google;</li>
+            <li>Periodo di conservazione dei dati impostato al minimo consentito dalla piattaforma (14 mesi).</li>
+          </ul>
+
+          <p>I dati raccolti tramite Google Analytics rimangono anonimi e aggregati: non è possibile risalire all'identità del singolo utente. I dati possono essere trasferiti negli Stati Uniti nel rispetto delle garanzie previste dall'art. 46 GDPR (Standard Contractual Clauses approvate dalla Commissione Europea).</p>
+
+          <div class="warning-box" role="note">
+            <p>I cookie analitici vengono installati <strong>solo previo consenso espresso</strong> dell'utente tramite il banner cookie. L'utente può revocare il consenso in qualsiasi momento attraverso le preferenze cookie disponibili in fondo a questa pagina.</p>
+          </div>
+
+          <!-- 2.3 Marketing -->
+          <h3>2.3 Cookie di marketing e profilazione</h3>
+
+          <p>I cookie di marketing sono utilizzati per tracciare i visitatori sui siti web al fine di visualizzare annunci pubblicitari pertinenti e coinvolgenti per il singolo utente.</p>
+
+          <div class="warning-box" role="note">
+            <p><strong>Cookie di marketing: attualmente NON utilizzati.</strong> Questo sito non installa alcun cookie di marketing, di profilazione o di remarketing. Non vengono trasmessi dati a reti pubblicitarie di terze parti. Qualora in futuro venissero introdotti, questa Cookie Policy sarà aggiornata e sarà richiesto il consenso esplicito degli utenti prima dell'installazione.</p>
+          </div>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="elenco"><span class="h2-number" aria-hidden="true">3</span> Elenco dettagliato dei cookie</h2>
+
+          <p>La seguente tabella elenca i cookie specifici che possono essere installati durante la navigazione su questo sito, suddivisi per categoria.</p>
+
+          <div class="cookie-table-wrap">
+            <table class="cookie-table" aria-label="Elenco cookie utilizzati dal sito">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Provider</th>
+                  <th scope="col">Finalità</th>
+                  <th scope="col">Durata</th>
+                  <th scope="col">Categoria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>session_id</code></td>
+                  <td>Stomatologico Cremonese<br><em>(first-party)</em></td>
+                  <td>Identifica la sessione di navigazione dell'utente. Indispensabile per il funzionamento del sito, la navigazione sicura e l'accesso ai moduli online.</td>
+                  <td>Fine sessione (si cancella alla chiusura del browser)</td>
+                  <td><span class="badge badge-tech">Tecnico</span></td>
+                </tr>
+                <tr>
+                  <td><code>cookie_consent</code></td>
+                  <td>Stomatologico Cremonese<br><em>(first-party)</em></td>
+                  <td>Memorizza le preferenze di consenso espresse dall'utente riguardo ai cookie, evitando la ripetuta visualizzazione del banner informativo.</td>
+                  <td>12 mesi</td>
+                  <td><span class="badge badge-tech">Tecnico</span></td>
+                </tr>
+                <tr>
+                  <td><code>_ga</code></td>
+                  <td>Google Analytics<br><em>(Google Ireland Limited)</em></td>
+                  <td>Cookie principale di Google Analytics. Registra un identificatore unico anonimo per distinguere i visitatori e calcolare dati aggregati sulle visite al sito (pagine visitate, durata sessione, ecc.). Installato solo previo consenso.</td>
+                  <td>2 anni</td>
+                  <td><span class="badge badge-analytics">Analitico</span></td>
+                </tr>
+                <tr>
+                  <td><code>_gid</code></td>
+                  <td>Google Analytics<br><em>(Google Ireland Limited)</em></td>
+                  <td>Cookie di Google Analytics che registra un identificatore unico per distinguere i visitatori nell'arco di 24 ore. Usato per calcolare le sessioni e le pagine visualizzate. Installato solo previo consenso.</td>
+                  <td>24 ore</td>
+                  <td><span class="badge badge-analytics">Analitico</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-size:13px; color: var(--gray-600); font-style: italic;">
+            Nota: la tabella viene aggiornata ogni volta che vengono modificati i cookie presenti sul sito. Ultima verifica: maggio 2025.
+          </p>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="gestione"><span class="h2-number" aria-hidden="true">4</span> Come gestire e disabilitare i cookie</h2>
+
+          <p>L'utente può controllare e/o cancellare i cookie nel modo che preferisce. Può eliminare tutti i cookie già presenti sul computer e impostare la maggior parte dei browser in modo da impedirne la memorizzazione.</p>
+
+          <p>Tuttavia, se si esegue questa operazione, alcune preferenze potrebbero essere perse e alcuni contenuti e funzionalità del sito potrebbero non essere disponibili. Ecco come gestire i cookie nei principali browser:</p>
+
+          <div class="browser-grid" role="list">
+
+            <div class="browser-card" role="listitem">
+              <h4>
+                <span class="browser-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+                </span>
+                Google Chrome
+              </h4>
+              <p>Vai su Menu (&#8942;) &rarr; Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie e altri dati dei siti. Da qui puoi bloccare tutti i cookie, bloccare i cookie di terze parti o cancellare i cookie esistenti.</p>
+              <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" aria-label="Guida cookie Google Chrome (apre in nuova scheda)">Guida ufficiale Google &rarr;</a>
+            </div>
+
+            <div class="browser-card" role="listitem">
+              <h4>
+                <span class="browser-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6611" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                </span>
+                Mozilla Firefox
+              </h4>
+              <p>Vai su Menu (&equiv;) &rarr; Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie e dati del sito. Puoi cancellare i cookie esistenti o impostare le eccezioni per siti specifici.</p>
+              <a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank" rel="noopener noreferrer" aria-label="Guida cookie Mozilla Firefox (apre in nuova scheda)">Guida ufficiale Firefox &rarr;</a>
+            </div>
+
+            <div class="browser-card" role="listitem">
+              <h4>
+                <span class="browser-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C6EF2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                Apple Safari
+              </h4>
+              <p>Vai su Preferenze &rarr; Privacy. Spunta "Blocca tutti i cookie" oppure gestisci i dati dei siti con il pulsante "Gestisci dati siti web". Su iOS: Impostazioni &rarr; Safari &rarr; Privacy e sicurezza.</p>
+              <a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" aria-label="Guida cookie Apple Safari (apre in nuova scheda)">Guida ufficiale Apple &rarr;</a>
+            </div>
+
+            <div class="browser-card" role="listitem">
+              <h4>
+                <span class="browser-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </span>
+                Microsoft Edge
+              </h4>
+              <p>Vai su Menu (&hellip;) &rarr; Impostazioni &rarr; Cookie e autorizzazioni del sito &rarr; Cookie e dati del sito. Puoi scegliere di bloccare i cookie di terze parti o tutti i cookie.</p>
+              <a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" aria-label="Guida cookie Microsoft Edge (apre in nuova scheda)">Guida ufficiale Microsoft &rarr;</a>
+            </div>
+
+          </div>
+
+          <p>Per ulteriori informazioni sulla gestione dei cookie a livello generale, l'utente può consultare il sito <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">www.aboutcookies.org</a> (in inglese) o il sito del <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">Garante per la Protezione dei Dati Personali</a>.</p>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="preferenze"><span class="h2-number" aria-hidden="true">5</span> Le tue preferenze cookie</h2>
+
+          <p>Puoi gestire le tue preferenze cookie direttamente da questa sezione. Ricorda che i cookie tecnici sono sempre attivi e non possono essere disabilitati.</p>
+
+          <div class="pref-section" role="region" aria-labelledby="pref-title">
+            <h2 id="pref-title">Gestisci le Preferenze Cookie</h2>
+            <p style="font-size:14px; color: var(--gray-600); margin-bottom: 24px;">Attiva o disattiva le categorie di cookie. Le modifiche avranno effetto immediato.</p>
+
+            <div class="pref-row">
+              <div class="pref-info">
+                <h4>Cookie tecnici / necessari</h4>
+                <p>Essenziali per il funzionamento del sito. Non possono essere disabilitati.</p>
+              </div>
+              <div class="toggle-wrap">
+                <label class="toggle" aria-label="Cookie tecnici - sempre attivi">
+                  <input type="checkbox" checked disabled aria-disabled="true">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pref-row">
+              <div class="pref-info">
+                <h4>Cookie analitici (Google Analytics)</h4>
+                <p>Ci aiutano a capire come i visitatori interagiscono con il sito raccogliendo dati aggregati e anonimi.</p>
+              </div>
+              <div class="toggle-wrap">
+                <label class="toggle" aria-label="Attiva o disattiva cookie analitici">
+                  <input type="checkbox" id="toggle-analytics" aria-checked="false">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pref-row">
+              <div class="pref-info">
+                <h4>Cookie di marketing</h4>
+                <p>Attualmente non utilizzati su questo sito.</p>
+              </div>
+              <div class="toggle-wrap">
+                <label class="toggle" aria-label="Cookie di marketing - non utilizzati, toggle disabilitato">
+                  <input type="checkbox" disabled aria-disabled="true">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pref-actions">
+              <button class="btn btn-primary" id="save-preferences" aria-label="Salva le preferenze cookie selezionate">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Salva preferenze
+              </button>
+              <button class="btn btn-outline" id="accept-all-pref" aria-label="Accetta tutti i cookie">
+                Accetta tutti
+              </button>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="terze-parti"><span class="h2-number" aria-hidden="true">6</span> Link a siti di terze parti</h2>
+
+          <p>Il sito web può contenere link o riferimenti a siti di terze parti (ad esempio link a Google Maps per la localizzazione, link a social network, ecc.). Questa Cookie Policy si applica esclusivamente al sito <strong>www.stomatologicocremonese.com</strong> e non si estende ai siti web di terze parti raggiungibili tramite link.</p>
+
+          <p>Si raccomanda di consultare le rispettive informative sulla privacy e cookie dei siti di terze parti visitati. Il Poliambulatorio Stomatologico Cremonese non è responsabile del trattamento dei dati effettuato da siti web di terze parti.</p>
+
+          <p>In particolare:</p>
+          <ul>
+            <li><strong>Google LLC</strong> – eventuale utilizzo di Google Analytics e Google Maps. Informativa: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+            <li><strong>Meta Platforms (Facebook/Instagram)</strong> – link ai profili social. Informativa: <a href="https://www.facebook.com/privacy/explanation" target="_blank" rel="noopener noreferrer">facebook.com/privacy/explanation</a>.</li>
+          </ul>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="aggiornamenti"><span class="h2-number" aria-hidden="true">7</span> Aggiornamenti della Cookie Policy</h2>
+
+          <p>Il Poliambulatorio Stomatologico Cremonese si riserva il diritto di aggiornare la presente Cookie Policy in qualsiasi momento, in particolare in caso di:</p>
+          <ul>
+            <li>variazioni normative o provvedimenti del Garante per la protezione dei dati personali;</li>
+            <li>introduzione di nuovi cookie o strumenti di tracciamento sul sito;</li>
+            <li>cessazione dell'utilizzo di cookie attualmente presenti;</li>
+            <li>modifiche ai fornitori di servizi terzi.</li>
+          </ul>
+
+          <p>Ogni modifica sarà pubblicata su questa pagina con l'indicazione della nuova data di aggiornamento. In caso di modifiche sostanziali, l'utente sarà informato tramite un avviso prominente sul sito o, se disponibile, via email.</p>
+
+          <p>Si invita pertanto a consultare periodicamente questa pagina per rimanere aggiornato. L'utilizzo continuato del sito dopo la pubblicazione delle modifiche comporta l'accettazione della nuova Cookie Policy.</p>
+
+          <p><strong>Versione corrente:</strong> 1.0 &ndash; <strong>Data:</strong> maggio 2025.</p>
+
+          <hr class="divider">
+
+
+          <!-- ─────────────────────────────────────────────────── -->
+          <h2 id="contatti"><span class="h2-number" aria-hidden="true">8</span> Contatti</h2>
+
+          <p>Per qualsiasi domanda, dubbio o richiesta relativa alla presente Cookie Policy e al trattamento dei dati personali, l'utente può contattare il Titolare del trattamento ai seguenti recapiti:</p>
+
+          <div class="contact-box" role="complementary" aria-label="Contatti per la privacy">
+            <h3>Contatto Privacy</h3>
+            <p>Poliambulatorio Stomatologico Cremonese<br>
+            Piazza Libertà 24, 26100 Cremona (CR) &ndash; Italia</p>
+            <p>
+              Email privacy: <a href="mailto:privacy@stomatologicocremonese.com">privacy@stomatologicocremonese.com</a><br>
+              Email generica: <a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a><br>
+              Telefono: <a href="tel:+390372123456">+39 0372 123456</a>
+            </p>
+            <p>L'utente ha il diritto di proporre reclamo all'autorità di controllo competente: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>, Piazza Venezia 11, 00187 Roma.</p>
+          </div>
+
+          <p>Per una panoramica completa dei diritti riconosciuti all'utente in qualità di interessato (diritto di accesso, rettifica, cancellazione, limitazione, portabilità, opposizione), si rimanda alla <a href="/pages/privacy-policy.html">Privacy Policy</a> del sito.</p>
+
+        </article>
+        <!-- /legal-article -->
+
+      </div>
+      <!-- /legal-layout -->
+    </div>
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo" aria-label="Informazioni sul poliambulatorio">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Col 1: About -->
+        <div>
+          <a href="/" class="footer-logo" aria-label="Stomatologico Cremonese - Homepage">
+            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <rect width="40" height="40" rx="10" fill="#2E7D32"/>
+              <rect x="17" y="9" width="6" height="22" rx="2" fill="white"/>
+              <rect x="9" y="17" width="22" height="6" rx="2" fill="white"/>
+            </svg>
+            Stomatologico Cremonese
+          </a>
+          <p class="footer-tagline">Il tuo poliambulatorio di fiducia a Cremona</p>
+          <p class="footer-desc">
+            Poliambulatorio Stomatologico Cremonese è un centro medico privato specializzato in odontoiatria, otorinolaringoiatria e medicina estetica. Da anni al servizio della salute dei cittadini di Cremona e provincia.
+          </p>
+          <div class="social-links" role="list" aria-label="Seguici sui social media">
+            <a href="https://www.facebook.com/stomatologicocremonese" class="social-link" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Seguici su Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/stomatologicocremonese" class="social-link" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Seguici su Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Specialità -->
+        <nav aria-label="Link alle specialità">
+          <h3 class="footer-col-title">Specialità</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="/pages/specialties/otorinolaringoiatria.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Otorinolaringoiatria
+              </a>
+            </li>
+            <li>
+              <a href="/pages/specialties/odontoiatria.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Odontoiatria
+              </a>
+            </li>
+            <li>
+              <a href="/pages/specialties/medicina-estetica.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Medicina Estetica
+              </a>
+            </li>
+            <li>
+              <a href="/pages/prenota.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Prenota una Visita
+              </a>
+            </li>
+            <li>
+              <a href="/pages/chi-siamo.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Il Nostro Team
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Col 3: Orari + Contatti -->
+        <div>
+          <h3 class="footer-col-title">Orari e Contatti</h3>
+          <div style="margin-bottom:20px;">
+            <div class="hours-row">
+              <span>Lunedì – Venerdì</span>
+              <span>08:30 – 19:00</span>
+            </div>
+            <div class="hours-row">
+              <span>Sabato</span>
+              <span>09:00 – 13:00</span>
+            </div>
+            <div class="hours-row" style="color:rgba(255,255,255,0.4)">
+              <span>Domenica</span>
+              <span>Chiuso</span>
+            </div>
+          </div>
+          <address style="font-style:normal;">
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Piazza Libertà 24,<br>26100 Cremona (CR)</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+              </svg>
+              <a href="tel:+390372123456" aria-label="Chiama il poliambulatorio">+39 0372 123456</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a>
+            </div>
+          </address>
+        </div>
+
+        <!-- Col 4: Quick Links -->
+        <nav aria-label="Link utili">
+          <h3 class="footer-col-title">Link Utili</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="/pages/chi-siamo.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Chi Siamo
+              </a>
+            </li>
+            <li>
+              <a href="/pages/contatti.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Contatti
+              </a>
+            </li>
+            <li>
+              <a href="/pages/prenota.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Prenota Online
+              </a>
+            </li>
+            <li>
+              <a href="/pages/privacy-policy.html">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="/pages/cookie-policy.html" aria-current="page">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Cookie Policy
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">
+          &copy; 2025 Stomatologico Cremonese &nbsp;|&nbsp; P.IVA 01234567890
+        </p>
+        <nav class="footer-bottom-links" aria-label="Link legali">
+          <a href="/pages/privacy-policy.html">Privacy Policy</a>
+          <a href="/pages/cookie-policy.html" aria-current="page">Cookie Policy</a>
+          <a href="/pages/contatti.html">Contatti</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER
+  ============================================================ -->
+  <div id="cookie-banner" role="region" aria-label="Consenso ai cookie" aria-live="polite">
+    <div class="container">
+      <div class="cookie-inner">
+        <p class="cookie-text">
+          <strong>Utilizziamo i cookie</strong> per migliorare la tua esperienza di navigazione e analizzare il traffico in forma anonima.
+          Consulta la nostra <a href="/pages/cookie-policy.html" aria-current="page">Cookie Policy</a> e la <a href="/pages/privacy-policy.html">Privacy Policy</a>.
+        </p>
+        <div class="cookie-actions">
+          <button class="btn btn-cookie-accept" id="cookie-accept-all" aria-label="Accetta tutti i cookie">
+            Accetta tutti
+          </button>
+          <button class="btn btn-cookie-necessary" id="cookie-accept-necessary" aria-label="Accetta solo i cookie necessari">
+            Solo necessari
+          </button>
+          <button class="btn btn-cookie-customize" id="cookie-customize" aria-label="Gestisci le preferenze cookie">
+            Personalizza
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script src="/js/cookie-consent.js"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+    // ── Hamburger menu ──────────────────────────────────────────
+    (function () {
+      var btn    = document.getElementById('hamburger-btn');
+      var menu   = document.getElementById('nav-menu');
+      var header = document.querySelector('.site-header');
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        header.classList.toggle('nav-open', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target)) {
+          menu.classList.remove('open');
+          header.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          header.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+        }
+      });
+    }());
+
+    // ── Cookie banner fallback ──────────────────────────────────
+    (function () {
+      var CONSENT_KEY = 'cookie_consent';
+
+      function showBanner() {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        if (!localStorage.getItem(CONSENT_KEY)) {
+          banner.classList.add('show');
+        }
+      }
+
+      function hideBanner(choice) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) banner.classList.remove('show');
+        localStorage.setItem(CONSENT_KEY, choice);
+        if (choice === 'all') {
+          document.getElementById('toggle-analytics') &&
+            (document.getElementById('toggle-analytics').checked = true);
+        }
+      }
+
+      var acceptAll  = document.getElementById('cookie-accept-all');
+      var acceptNec  = document.getElementById('cookie-accept-necessary');
+      var customize  = document.getElementById('cookie-customize');
+
+      if (acceptAll) acceptAll.addEventListener('click', function () { hideBanner('all'); });
+      if (acceptNec) acceptNec.addEventListener('click', function () { hideBanner('necessary'); });
+      if (customize) customize.addEventListener('click', function () {
+        hideBanner(localStorage.getItem(CONSENT_KEY) || 'necessary');
+        document.getElementById('preferenze') &&
+          document.getElementById('preferenze').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      if (!window.__cookieConsentLoaded) { setTimeout(showBanner, 800); }
+    }());
+
+    // ── Preferences panel logic ─────────────────────────────────
+    (function () {
+      var CONSENT_KEY   = 'cookie_consent';
+      var toggleAna     = document.getElementById('toggle-analytics');
+      var savePref      = document.getElementById('save-preferences');
+      var acceptAllPref = document.getElementById('accept-all-pref');
+
+      // Restore saved state
+      var saved = localStorage.getItem(CONSENT_KEY);
+      if (saved === 'all' && toggleAna) { toggleAna.checked = true; }
+
+      if (savePref) {
+        savePref.addEventListener('click', function () {
+          var choice = (toggleAna && toggleAna.checked) ? 'all' : 'necessary';
+          localStorage.setItem(CONSENT_KEY, choice);
+          savePref.textContent = 'Preferenze salvate!';
+          savePref.style.background = 'var(--green-darkest)';
+          setTimeout(function () {
+            savePref.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Salva preferenze';
+            savePref.style.background = '';
+          }, 2000);
+        });
+      }
+
+      if (acceptAllPref) {
+        acceptAllPref.addEventListener('click', function () {
+          if (toggleAna) toggleAna.checked = true;
+          localStorage.setItem(CONSENT_KEY, 'all');
+          var banner = document.getElementById('cookie-banner');
+          if (banner) banner.classList.remove('show');
+        });
+      }
+    }());
+
+    // ── TOC active link highlight ───────────────────────────────
+    (function () {
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      if (!tocLinks.length) return;
+
+      var sections = [];
+      tocLinks.forEach(function (link) {
+        var id = link.getAttribute('href').replace('#', '');
+        var el = document.getElementById(id);
+        if (el) sections.push({ link: link, el: el });
+      });
+
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var active = null;
+        sections.forEach(function (s) {
+          if (s.el.offsetTop <= scrollY) { active = s; }
+        });
+        tocLinks.forEach(function (l) { l.classList.remove('active'); });
+        if (active) { active.link.classList.add('active'); }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }());
+  </script>
+
+</body>
+</html>

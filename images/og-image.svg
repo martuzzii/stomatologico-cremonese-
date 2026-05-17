@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#2E7D32"/>
+
+  <!-- Subtle radial highlight top-right -->
+  <radialGradient id="glow" cx="75%" cy="20%" r="55%">
+    <stop offset="0%" stop-color="#4CAF50" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#2E7D32" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Decorative cross pattern (background, very subtle) -->
+  <rect x="920" y="160" width="14" height="50" rx="4" fill="#ffffff" opacity="0.07"/>
+  <rect x="897" y="183" width="60" height="14" rx="4" fill="#ffffff" opacity="0.07"/>
+  <rect x="960" y="380" width="10" height="36" rx="3" fill="#ffffff" opacity="0.06"/>
+  <rect x="941" y="396" width="44" height="10" rx="3" fill="#ffffff" opacity="0.06"/>
+  <rect x="100" y="460" width="10" height="36" rx="3" fill="#ffffff" opacity="0.06"/>
+  <rect x="81" y="476" width="44" height="10" rx="3" fill="#ffffff" opacity="0.06"/>
+
+  <!-- Main medical cross icon (white) -->
+  <g transform="translate(140, 220)">
+    <!-- Cross -->
+    <rect x="50" y="0"  width="40" height="140" rx="10" fill="#ffffff"/>
+    <rect x="0"  y="50" width="140" height="40" rx="10" fill="#ffffff"/>
+    <!-- Subtle tooth hint below cross -->
+    <ellipse cx="70" cy="155" rx="24" ry="10" fill="#ffffff" opacity="0.35"/>
+  </g>
+
+  <!-- Vertical separator line -->
+  <rect x="360" y="210" width="2" height="210" rx="1" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Main title: Stomatologico Cremonese -->
+  <text
+    x="410"
+    y="330"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="78"
+    font-weight="700"
+    fill="#ffffff"
+    letter-spacing="-1"
+    dominant-baseline="middle">Stomatologico</text>
+  <text
+    x="410"
+    y="430"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="78"
+    font-weight="700"
+    fill="#ffffff"
+    letter-spacing="-1"
+    dominant-baseline="middle">Cremonese</text>
+
+  <!-- Subtitle: Poliambulatorio · Cremona -->
+  <text
+    x="410"
+    y="510"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="36"
+    font-weight="400"
+    fill="#ffffff"
+    opacity="0.78"
+    dominant-baseline="middle"
+    letter-spacing="1">Poliambulatorio · Cremona</text>
+
+  <!-- Bottom green bar accent -->
+  <rect x="0" y="600" width="1200" height="30" fill="#1B5E20"/>
+  <!-- Small website URL in bottom bar -->
+  <text
+    x="600"
+    y="621"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="500"
+    fill="#ffffff"
+    opacity="0.6"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="0.5">www.stomatologicocremonese.com</text>
+</svg>
