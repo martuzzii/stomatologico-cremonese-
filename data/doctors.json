@@ -1,0 +1,40 @@
+{
+  "doctors": [
+    {
+      "id": "dr-rossi",
+      "name": "Dr. Marco Rossi",
+      "specialty": "otorinolaringoiatria",
+      "title": "Specialista in Otorinolaringoiatria",
+      "bio": "Oltre 15 anni di esperienza in otorinolaringoiatria clinica e chirurgica.",
+      "availability": {
+        "monday": ["09:00","09:30","10:00","10:30","11:00","14:00","14:30","15:00","15:30","16:00"],
+        "wednesday": ["09:00","09:30","10:00","10:30","11:00","14:00","14:30","15:00"],
+        "friday": ["09:00","09:30","10:00","10:30","11:00"]
+      }
+    },
+    {
+      "id": "dr-ferrari",
+      "name": "Dr.ssa Elena Ferrari",
+      "specialty": "odontoiatria",
+      "title": "Specialista in Odontoiatria e Chirurgia Orale",
+      "bio": "Esperta in implantologia, ortodonzia e odontoiatria conservativa.",
+      "availability": {
+        "tuesday": ["08:30","09:00","09:30","10:00","10:30","11:00","15:00","15:30","16:00","16:30"],
+        "thursday": ["08:30","09:00","09:30","10:00","10:30","11:00","14:00","14:30","15:00"],
+        "saturday": ["09:00","09:30","10:00","10:30","11:00"]
+      }
+    },
+    {
+      "id": "dr-bianchi",
+      "name": "Dr.ssa Sofia Bianchi",
+      "specialty": "medicina-estetica",
+      "title": "Specialista in Medicina Estetica",
+      "bio": "Specializzata in trattamenti estetici non invasivi e ringiovanimento.",
+      "availability": {
+        "monday": ["14:00","14:30","15:00","15:30","16:00","16:30","17:00"],
+        "thursday": ["14:00","14:30","15:00","15:30","16:00","16:30","17:00"],
+        "friday": ["10:00","10:30","11:00","11:30","14:00","14:30","15:00"]
+      }
+    }
+  ]
+}
