@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicina Estetica a Cremona | Trattamenti Viso e Corpo | Stomatologico Cremonese</title>
+  <meta name="description" content="Medicina estetica a Cremona. Filler, botox, trattamenti ringiovanimento viso. Specialista certificata. Prenota online. Piazza Libertà 24." />
+  <link rel="canonical" href="https://www.stomatologicocremonese.com/specialita/medicina-estetica/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Medicina Estetica a Cremona | Stomatologico Cremonese" />
+  <meta property="og:description" content="Medicina estetica a Cremona. Filler, botox, trattamenti ringiovanimento viso. Specialista certificata. Prenota online." />
+  <meta property="og:url" content="https://www.stomatologicocremonese.com/specialita/medicina-estetica/" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Stomatologico Cremonese — Medicina Estetica",
+      "description": "Trattamenti di medicina estetica a Cremona: filler con acido ialuronico, tossina botulinica, peeling chimico, biorivitalizzazione e trattamenti di ringiovanimento del viso.",
+      "url": "https://www.stomatologicocremonese.com/specialita/medicina-estetica/",
+      "telephone": "+39 0372 000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Piazza Libertà 24",
+        "addressLocality": "Cremona",
+        "addressRegion": "CR",
+        "postalCode": "26100",
+        "addressCountry": "IT"
+      },
+      "openingHours": ["Mo-Fr 08:00-19:00", "Sa 09:00-13:00"],
+      "availableService": [
+        {"@type": "MedicalProcedure", "name": "Visita Medico Estetica"},
+        {"@type": "MedicalProcedure", "name": "Filler con Acido Ialuronico"},
+        {"@type": "MedicalProcedure", "name": "Tossina Botulinica (Botox)"},
+        {"@type": "MedicalProcedure", "name": "Peeling Chimico"},
+        {"@type": "MedicalProcedure", "name": "Biorivitalizzazione"},
+        {"@type": "MedicalProcedure", "name": "Trattamento Macchie Cutanee"},
+        {"@type": "MedicalProcedure", "name": "Rimodellamento del Viso"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr.ssa Sofia Bianchi",
+      "description": "Specialista in Medicina Estetica e Dermatologia Estetica, con formazione certificata in filler, tossina botulinica e tecniche di ringiovanimento del viso.",
+      "medicalSpecialty": "Aesthetic Medicine",
+      "worksFor": {
+        "@type": "MedicalClinic",
+        "name": "Stomatologico Cremonese",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Piazza Libertà 24",
+          "addressLocality": "Cremona",
+          "postalCode": "26100",
+          "addressCountry": "IT"
+        }
+      }
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER
+  ============================================================ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consenso cookie" aria-describedby="cookie-banner-text" hidden>
+    <div class="cookie-banner__inner container">
+      <p id="cookie-banner-text" class="cookie-banner__text">
+        Questo sito utilizza cookie tecnici e, previo consenso, cookie analitici e di profilazione.
+        Consulta la nostra <a href="/privacy-policy/">Privacy Policy</a> e la
+        <a href="/cookie-policy/">Cookie Policy</a>.
+      </p>
+      <div class="cookie-banner__actions">
+        <button id="cookie-accept-all" class="btn btn--primary btn--sm">Accetta Tutti</button>
+        <button id="cookie-accept-necessary" class="btn btn--outline btn--sm">Solo Necessari</button>
+        <a href="/cookie-policy/" class="btn btn--ghost btn--sm">Gestisci Preferenze</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+
+        <!-- Logo -->
+        <a href="/" class="site-header__logo" aria-label="Stomatologico Cremonese - Homepage">
+          <span class="site-header__logo-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="#2E7D32"/>
+              <path d="M12 16c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.4 5.2-3.6 6.7L20 32l-4.4-9.3C13.4 21.2 12 18.8 12 16z" fill="#fff"/>
+              <circle cx="20" cy="16" r="3" fill="#2E7D32"/>
+            </svg>
+          </span>
+          <span class="site-header__logo-text">
+            <strong>Stomatologico</strong> Cremonese
+          </span>
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <button class="site-header__menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Apri menu di navigazione">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- Main navigation -->
+        <nav class="main-nav" id="main-nav" role="navigation" aria-label="Navigazione principale">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a href="/" class="main-nav__link">Home</a></li>
+            <li class="main-nav__item main-nav__item--has-dropdown">
+              <a href="/specialita/" class="main-nav__link main-nav__link--active" aria-current="page">Specialità</a>
+              <ul class="main-nav__dropdown">
+                <li><a href="/specialita/odontoiatria/" class="main-nav__dropdown-link">Odontoiatria</a></li>
+                <li><a href="/specialita/otorinolaringoiatria/" class="main-nav__dropdown-link">Otorinolaringoiatria</a></li>
+                <li><a href="/specialita/medicina-estetica/" class="main-nav__dropdown-link">Medicina Estetica</a></li>
+              </ul>
+            </li>
+            <li class="main-nav__item"><a href="/medici/" class="main-nav__link">I Nostri Medici</a></li>
+            <li class="main-nav__item"><a href="/chi-siamo/" class="main-nav__link">Chi Siamo</a></li>
+            <li class="main-nav__item"><a href="/contatti/" class="main-nav__link">Contatti</a></li>
+          </ul>
+          <a href="/prenota/" class="btn btn--primary main-nav__cta">Prenota Visita</a>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         BREADCRUMB
+    ============================================================ -->
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+      <div class="container">
+        <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" class="breadcrumb__link" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li class="breadcrumb__item" aria-hidden="true"><span class="breadcrumb__separator">›</span></li>
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/specialita/" class="breadcrumb__link" itemprop="item"><span itemprop="name">Specialità</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li class="breadcrumb__item" aria-hidden="true"><span class="breadcrumb__separator">›</span></li>
+          <li class="breadcrumb__item breadcrumb__item--current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Medicina Estetica</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="page-hero page-hero--estetica" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="page-hero__content">
+          <span class="page-hero__badge">Specialità Medica</span>
+          <h1 class="page-hero__title" id="hero-title">Medicina Estetica a Cremona</h1>
+          <p class="page-hero__subtitle">
+            Presso lo Stomatologico Cremonese la Dr.ssa Sofia Bianchi offre trattamenti di medicina estetica certificati, personalizzati sulle caratteristiche di ogni paziente. Un approccio scientifico e naturale per valorizzare la tua bellezza, correggere gli inestetismi e ritrovare fiducia in te stesso in massima sicurezza.
+          </p>
+          <div class="page-hero__actions">
+            <a href="/prenota/?specialty=medicina-estetica&doctor=dr-bianchi" class="btn btn--primary btn--lg">Prenota con la Dr.ssa Bianchi</a>
+            <a href="/contatti/" class="btn btn--outline btn--lg">Contattaci</a>
+          </div>
+          <div class="page-hero__meta">
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Piazza Libertà 24, Cremona
+            </span>
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Visite su appuntamento
+            </span>
+            <span class="page-hero__meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Tel. 0372 000000
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MEDICAL DISCLAIMER
+    ============================================================ -->
+    <div class="medical-disclaimer" role="note" aria-label="Avviso medico importante">
+      <div class="container">
+        <div class="medical-disclaimer__inner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p><strong>Informazione importante:</strong> I trattamenti estetici sono procedure mediche. Prenota sempre una visita preliminare con la Dr.ssa Bianchi per valutare l'idoneità al trattamento, discutere obiettivi e aspettative e ricevere informazioni complete su benefici e possibili rischi.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section class="services-section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="services-title">I Nostri Trattamenti Estetici</h2>
+          <p class="section-subtitle">Trattamenti non chirurgici di medicina estetica eseguiti in ambiente medico certificato, con prodotti di alta qualità e massima attenzione alla sicurezza del paziente.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card" aria-labelledby="svc-visita-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-visita-title">Visita Medico Estetica</h3>
+            <p class="service-card__desc">Consulenza personalizzata con la Dr.ssa Bianchi per analizzare le caratteristiche del viso, comprendere le aspettative del paziente e definire il piano di trattamento più adatto. Obbligatoria prima di qualsiasi procedura estetica.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=visita" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-filler-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-filler-title">Filler con Acido Ialuronico</h3>
+            <p class="service-card__desc">Iniezioni di acido ialuronico per riempire rughe profonde (rughe naso-labiali, rughe del sorriso), aumentare il volume delle labbra, correggere le occhiaie e ridefinire i contorni del viso. Risultati naturali, duraturi fino a 12-18 mesi, completamente reversibili.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=filler" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-botox-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1M4.22 4.22l.71.71m12.73 12.73l.71.71M3 12h1m16 0h1M4.22 19.78l.71-.71M18.36 5.64l.71-.71"/><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-botox-title">Tossina Botulinica (Botox)</h3>
+            <p class="service-card__desc">Trattamento con tossina botulinica purificata per ridurre le rughe dinamiche causate dall'espressività facciale: rughe della fronte, rughe glabellari (rughe del leone) e zampe di gallina. Risultati visibili dopo 5-7 giorni, effetto che dura mediamente 4-6 mesi.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=botox" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-peeling-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-peeling-title">Peeling Chimico</h3>
+            <p class="service-card__desc">Applicazione di sostanze chimiche esfolianti (acido glicolico, acido tricloroacetico, acido mandorlo) per rinnovare lo strato superficiale della pelle. Indicato per rughe superficiali, macchie, discromie, acne e cicatrici. Disponibile in formulazioni superficiali, medie e profonde in base alle esigenze.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=peeling" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-bioriviatal-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-bioriviatal-title">Biorivitalizzazione</h3>
+            <p class="service-card__desc">Microiniezioni di acido ialuronico non reticolato, vitamine, aminoacidi e antiossidanti direttamente nel derma per idratare in profondità, migliorare l'elasticità cutanea e stimolare la produzione di collagene. Ideale per pelle secca, spenta o per rallentare il fotoaging.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=biorivitalizzazione" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-macchie-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-macchie-title">Trattamento Macchie Cutanee</h3>
+            <p class="service-card__desc">Protocolli combinati per la riduzione di macchie cutanee da sole (lentiggini, cheratosi seborroiche), melasma, cloasma gravidico e iperpigmentazioni post-infiammatorie. Approccio personalizzato con peeling chimici, prodotti depigmentanti medici e schermo solare ad alta protezione.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=macchie" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="service-card" aria-labelledby="svc-rimodel-title">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/><path d="M12 5.67s0 3 3 3"/></svg>
+            </div>
+            <h3 class="service-card__title" id="svc-rimodel-title">Rimodellamento del Viso</h3>
+            <p class="service-card__desc">Trattamento integrato con filler e tossina botulinica per riequilibrare le proporzioni del viso, ridefinire l'ovale, correggere l'asimmetria del mento o delle labbra e ridurre l'aspetto cadente degli zigomi. Piano di trattamento studiato in modo globale per risultati armoniosi e naturali.</p>
+            <a href="/prenota/?specialty=medicina-estetica&service=rimodellamento" class="service-card__link">Prenota ora <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DOCTOR SECTION
+    ============================================================ -->
+    <section class="doctor-section" aria-labelledby="doctor-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="doctor-title">La Tua Specialista in Medicina Estetica</h2>
+          <p class="section-subtitle">Esperienza, certificazioni e un approccio etico che mette sempre al primo posto la sicurezza e il benessere del paziente.</p>
+        </div>
+
+        <div class="doctor-card doctor-card--featured">
+          <div class="doctor-card__avatar" aria-hidden="true">
+            <div class="doctor-card__avatar-placeholder">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__header">
+              <h3 class="doctor-card__name">Dr.ssa Sofia Bianchi</h3>
+              <span class="doctor-card__specialty">Specialista in Medicina Estetica</span>
+            </div>
+            <p class="doctor-card__bio">
+              La Dr.ssa Sofia Bianchi è medico chirurgo specializzata in Dermatologia e Venereologia, con una formazione avanzata certificata in medicina estetica non chirurgica. Laureata presso l'Università degli Studi di Bologna e specializzata all'Università di Milano, ha poi completato un percorso di alta formazione in tecniche iniettive (filler e tossina botulinica) presso centri di eccellenza europei. Da oltre 10 anni dedica la propria attività professionale ai trattamenti di ringiovanimento e rimodellamento del viso, con un'etica clinica fondata sulla naturalezza dei risultati e sulla totale trasparenza con il paziente. Non effettua trattamenti che non ritiene appropriati o sicuri, e persegue sempre il minimo intervento efficace. Relatrice in convegni di medicina estetica e autrice di pubblicazioni scientifiche su riviste del settore.
+            </p>
+            <ul class="doctor-card__credentials" aria-label="Credenziali del medico">
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Laurea in Medicina e Chirurgia — Università degli Studi di Bologna
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Specializzazione in Dermatologia e Venereologia — Università degli Studi di Milano
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Certificazione in Tecniche Iniettive Avanzate (filler e tossina botulinica)
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Membro della Società Italiana di Medicina Estetica (SIME)
+              </li>
+              <li class="doctor-card__credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Oltre 10 anni di esperienza clinica in medicina estetica
+              </li>
+            </ul>
+            <a href="/prenota/?specialty=medicina-estetica&doctor=dr-bianchi" class="btn btn--primary">Prenota con la Dr.ssa Bianchi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING TABLE
+    ============================================================ -->
+    <section class="pricing-section" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="pricing-title">Tariffe dei Trattamenti Estetici</h2>
+          <p class="section-subtitle">Trasparenza totale sui costi. Riceverai sempre un preventivo dettagliato durante la visita preliminare, senza impegni.</p>
+        </div>
+
+        <div class="pricing-table-wrapper" role="region" aria-label="Tabella dei prezzi">
+          <table class="pricing-table">
+            <caption class="pricing-table__caption">Listino prezzi trattamenti di medicina estetica</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="pricing-table__th pricing-table__th--service">Trattamento</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--desc">Descrizione</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--price">Tariffa</th>
+                <th scope="col" class="pricing-table__th pricing-table__th--action">Prenota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Visita Medico Estetica</td>
+                <td class="pricing-table__desc">Consulenza personalizzata, analisi del viso e definizione del piano di trattamento</td>
+                <td class="pricing-table__price"><span class="price-tag">€ 70</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=medicina-estetica&service=visita" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row pricing-table__row--alt">
+                <td class="pricing-table__service">Filler Acido Ialuronico</td>
+                <td class="pricing-table__desc">Trattamento filler per labbra, rughe naso-labiali o rimodellamento (prezzo per siringa)</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 200</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=medicina-estetica&service=filler" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Tossina Botulinica</td>
+                <td class="pricing-table__desc">Trattamento botox per rughe dinamiche (fronte, glabella, zampe di gallina)</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 180</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=medicina-estetica&service=botox" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row pricing-table__row--alt">
+                <td class="pricing-table__service">Peeling Chimico</td>
+                <td class="pricing-table__desc">Peeling superficiale o medio per rinnovamento cutaneo, macchie e rughe fini</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 120</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=medicina-estetica&service=peeling" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+              <tr class="pricing-table__row">
+                <td class="pricing-table__service">Biorivitalizzazione</td>
+                <td class="pricing-table__desc">Protocollo di idratazione profonda e stimolazione del collagene (ciclo di 3 sedute consigliato)</td>
+                <td class="pricing-table__price"><span class="price-tag">da € 150</span></td>
+                <td class="pricing-table__action"><a href="/prenota/?specialty=medicina-estetica&service=biorivitalizzazione" class="btn btn--sm btn--outline">Prenota</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Prezzi indicativi, IVA inclusa. Il costo definitivo dipende dalla quantità di prodotto utilizzata e dalla complessità del trattamento. Il preventivo dettagliato viene fornito durante la visita preliminare.
+        </p>
+
+        <!-- Medical procedure disclaimer -->
+        <div class="pricing-disclaimer" role="note">
+          <p>
+            <strong>Attenzione:</strong> I trattamenti estetici sono procedure mediche che richiedono valutazione preliminare da parte di un medico abilitato. La Dr.ssa Bianchi effettua sempre una visita di consulenza prima di procedere con qualsiasi trattamento, per garantire la sicurezza e l'appropriatezza delle procedure. Prenota sempre una visita preliminare.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faq-title">Domande Frequenti sulla Medicina Estetica</h2>
+          <p class="section-subtitle">Risposte alle domande più comuni dei nostri pazienti sui trattamenti estetici medici.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-1">
+              Qual è la differenza tra filler e botox? Quando si usa l'uno o l'altro?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-1" hidden>
+              <p>Filler e tossina botulinica (botox) sono due trattamenti diversi che agiscono su meccanismi differenti. Il <strong>botox</strong> rilassa i muscoli che causano le rughe dinamiche — quelle che si formano con l'espressività del viso, come le rughe della fronte, le rughe tra le sopracciglia (rughe del leone) e le zampe di gallina. Il <strong>filler</strong>, invece, aggiunge volume nelle zone dove si è perso tessuto o dove si vuole correggere un contorno: rughe naso-labiali profonde, labbra, zigomi, solchi sottorbitali e mento. Spesso i due trattamenti vengono combinati in un piano integrato per ottenere risultati più armoniosi e completi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-2">
+              I filler con acido ialuronico sono sicuri? Quanto durano i risultati?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-2" hidden>
+              <p>I filler a base di acido ialuronico sono considerati sicuri quando somministrati da medici qualificati, in quanto l'acido ialuronico è una sostanza naturalmente presente nel nostro organismo. I rischi di reazioni allergiche sono molto bassi. Il trattamento è completamente reversibile: in caso di risultati insoddisfacenti o di complicanze, è possibile sciogliere il filler iniettando ialurodinasi. I risultati durano mediamente da 9 a 18 mesi a seconda della zona trattata e del tipo di prodotto utilizzato. L'area delle labbra tende a riassorbire il prodotto più rapidamente, mentre le zone meno mobili mantengono l'effetto più a lungo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-3">
+              Ci sono controindicazioni per i trattamenti di medicina estetica?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-3" hidden>
+              <p>Alcune condizioni rappresentano controindicazioni assolute o relative ai trattamenti estetici. In generale sono controindicate in caso di <strong>gravidanza e allattamento</strong>, malattie autoimmuni attive, infezioni cutanee in atto nella zona da trattare, allergie note ai componenti del prodotto e alcune patologie neuromuscolari (per il botox). Farmaci anticoagulanti o antiaggreganti richiedono una valutazione attenta. È per questo che la visita preliminare con la Dr.ssa Bianchi è sempre necessaria: consente di identificare qualsiasi controindicazione e di adattare il piano di trattamento in modo sicuro.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-4">
+              I trattamenti estetici fanno male? È necessario un periodo di recupero?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-4" hidden>
+              <p>La maggior parte dei trattamenti di medicina estetica ambulatoriali è minimamente invasiva e ben tollerata. I filler e le iniezioni di botox vengono eseguiti con aghi molto sottili; si può avvertire una leggera sensazione di puntura e, nelle ore successive, comparsa di piccoli ematomi o gonfiore nella zona trattata, che si risolvono spontaneamente in 3-7 giorni. Il peeling chimico può causare arrossamento e desquamazione per alcuni giorni, a seconda della profondità. In nessun caso è richiesta ospedalizzazione. Subito dopo il trattamento si raccomanda di evitare esposizione solare diretta, calore intenso e attività fisica pesante per 24-48 ore.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-5">
+              A partire da che età si possono effettuare trattamenti di medicina estetica?
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer" id="faq-5" hidden>
+              <p>In Italia i trattamenti di medicina estetica con sostanze iniettabili sono riservati a persone maggiorenni (18 anni compiuti). La maggior parte dei trattamenti preventivi e di ringiovanimento si rivolgono a pazienti tra i 25 e i 65 anni, ma non esiste una soglia superiore: ciò che conta è lo stato di salute generale e la valutazione medica dell'appropriatezza del trattamento. La Dr.ssa Bianchi adotta un approccio etico: non esegue trattamenti eccessivi o non indicati, e porta sempre il paziente a comprendere pienamente le aspettative realistiche del trattamento scelto.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA SECTION
+    ============================================================ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-box__content">
+            <h2 class="cta-box__title" id="cta-title">Prenota la tua Visita di Medicina Estetica</h2>
+            <p class="cta-box__text">Vuoi valutare un trattamento estetico o ricevere una consulenza personalizzata? La Dr.ssa Sofia Bianchi ti guiderà con professionalità e trasparenza verso la scelta giusta per te. Prenota online in pochi secondi o chiamaci.</p>
+          </div>
+          <div class="cta-box__actions">
+            <a href="/prenota/?specialty=medicina-estetica&doctor=dr-bianchi" class="btn btn--white btn--lg">Prenota con la Dr.ssa Bianchi</a>
+            <a href="tel:+390372000000" class="btn btn--outline-white btn--lg">Chiama il 0372 000000</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to specialties -->
+    <div class="back-link-wrapper">
+      <div class="container">
+        <a href="/specialita/" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Torna alle specialità
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <!-- Col 1: Info clinica -->
+        <div class="site-footer__col site-footer__col--about">
+          <a href="/" class="site-footer__logo" aria-label="Stomatologico Cremonese - Homepage">
+            <span class="site-header__logo-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#2E7D32"/>
+                <path d="M12 16c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.8-1.4 5.2-3.6 6.7L20 32l-4.4-9.3C13.4 21.2 12 18.8 12 16z" fill="#fff"/>
+                <circle cx="20" cy="16" r="3" fill="#2E7D32"/>
+              </svg>
+            </span>
+            <span><strong>Stomatologico</strong> Cremonese</span>
+          </a>
+          <p class="site-footer__about-text">Centro medico specialistico a Cremona. Offriamo cure di alta qualità in un ambiente accogliente e professionale dal 1998.</p>
+          <address class="site-footer__address">
+            <p>Piazza Libertà 24<br />26100 Cremona (CR)</p>
+            <p><a href="tel:+390372000000">Tel. 0372 000000</a></p>
+            <p><a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a></p>
+          </address>
+        </div>
+
+        <!-- Col 2: Specialità -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Specialità</h3>
+          <ul class="site-footer__links">
+            <li><a href="/specialita/odontoiatria/">Odontoiatria</a></li>
+            <li><a href="/specialita/otorinolaringoiatria/">Otorinolaringoiatria</a></li>
+            <li><a href="/specialita/medicina-estetica/">Medicina Estetica</a></li>
+            <li><a href="/specialita/">Tutte le Specialità</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Informazioni -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Informazioni</h3>
+          <ul class="site-footer__links">
+            <li><a href="/chi-siamo/">Chi Siamo</a></li>
+            <li><a href="/medici/">I Nostri Medici</a></li>
+            <li><a href="/prenota/">Prenota una Visita</a></li>
+            <li><a href="/contatti/">Contatti e Orari</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="site-footer__col">
+          <h3 class="site-footer__col-title">Legal</h3>
+          <ul class="site-footer__links">
+            <li><a href="/privacy-policy/">Informativa Privacy</a></li>
+            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="/note-legali/">Note Legali</a></li>
+          </ul>
+          <div class="site-footer__orari">
+            <h4 class="site-footer__orari-title">Orari di ricevimento</h4>
+            <p>Lun–Ven: 08:00–19:00</p>
+            <p>Sabato: 09:00–13:00</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">© <span id="footer-year">2024</span> Stomatologico Cremonese S.r.l. — P.IVA 01234567890 — Tutti i diritti riservati.</p>
+        <p class="site-footer__disclaimer">Le informazioni contenute in questo sito hanno carattere puramente informativo e non sostituiscono il parere del medico.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
