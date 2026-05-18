@@ -22,8 +22,9 @@
   /* ============================================================
      CONFIGURATION
      ============================================================ */
-  const DOCTORS_JSON_URL = '/data/doctors.json';
+  const DOCTORS_JSON_URL = '../data/doctors.json';
   const BOOKING_API_URL  = '/api/booking';
+  const BOOKINGS_STORAGE_KEY = 'sc_bookings';
   const STORAGE_KEY      = 'sc_booking_partial';
 
   /* Italian day names */
@@ -211,6 +212,15 @@
      DATA LOADING
      ============================================================ */
   async function loadDoctors() {
+    // Admin panel may have saved an override in localStorage
+    try {
+      const adminOverride = localStorage.getItem('sc_admin_avail');
+      if (adminOverride) {
+        state.doctors = JSON.parse(adminOverride);
+        return;
+      }
+    } catch (e) { /* ignore */ }
+
     try {
       const response = await fetch(DOCTORS_JSON_URL);
       if (!response.ok) throw new Error('Failed to load doctors data');
@@ -273,6 +283,13 @@
     });
   }
 
+  /* expose bookings list for admin page */
+  window.SC = window.SC || {};
+  window.SC.getBookings = function () {
+    try { return JSON.parse(localStorage.getItem(BOOKINGS_STORAGE_KEY) || '[]'); } catch(e) { return []; }
+  };
+  window.SC.clearBookings = function () { localStorage.removeItem(BOOKINGS_STORAGE_KEY); };
+
   /* ============================================================
      STEP VISIBILITY
      ============================================================ */
@@ -282,11 +299,13 @@
     // Update step panels
     els('.booking-step').forEach(panel => {
       panel.classList.remove('active');
+      panel.hidden = true;
     });
 
     const activePanel = el(`#booking-step-${stepNumber}`);
     if (activePanel) {
       activePanel.classList.add('active');
+      activePanel.hidden = false;
     }
 
     // Update progress
@@ -974,6 +993,13 @@
       }
     }
 
+    // Persist booking for admin panel
+    try {
+      const existing = JSON.parse(localStorage.getItem(BOOKINGS_STORAGE_KEY) || '[]');
+      existing.unshift({ id: Date.now(), receivedAt: new Date().toISOString(), ...payload });
+      localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(existing.slice(0, 200)));
+    } catch (e) { /* ignore storage errors */ }
+
     // Clear partial data from localStorage
     clearPartialData();
 
@@ -1119,6 +1145,10 @@
 
     if (nextBtn) nextBtn.addEventListener('click', handleNext);
     if (backBtn) backBtn.addEventListener('click', handleBack);
+
+    // Show step 1 (unhide it explicitly)
+    const step1 = el('#booking-step-1');
+    if (step1) { step1.hidden = false; step1.classList.add('active'); }
 
     // Render step 1 initially
     updateProgress();

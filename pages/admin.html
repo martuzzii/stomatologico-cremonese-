@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pannello Admin | Stomatologico Cremonese</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f1f5f9; color: #1a202c; }
+
+    /* Login screen */
+    #login-screen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    }
+    .login-card {
+      background: #fff; border-radius: 16px; padding: 48px 40px; width: 100%; max-width: 380px;
+      box-shadow: 0 4px 32px rgba(0,0,0,.12);
+    }
+    .login-card h1 { font-size: 1.4rem; margin-bottom: 8px; color: #1a5c3a; }
+    .login-card p { font-size: .88rem; color: #718096; margin-bottom: 28px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .field label { font-size: .82rem; font-weight: 600; color: #4a5568; }
+    .field input {
+      border: 2px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: .95rem;
+      transition: border-color .15s;
+    }
+    .field input:focus { outline: none; border-color: #2d8653; }
+    .btn-login {
+      width: 100%; background: #1a5c3a; color: #fff; border: none; border-radius: 8px;
+      padding: 12px; font-size: .95rem; font-weight: 700; cursor: pointer;
+    }
+    .btn-login:hover { background: #2d8653; }
+    #login-error { color: #e53e3e; font-size: .82rem; margin-top: 10px; display: none; }
+
+    /* Admin layout */
+    #admin-screen { display: none; min-height: 100vh; }
+    .admin-header {
+      background: #1a5c3a; color: #fff; padding: 16px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .admin-header h1 { font-size: 1.1rem; }
+    .btn-logout {
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      color: #fff; border-radius: 6px; padding: 6px 16px; cursor: pointer; font-size: .82rem;
+    }
+    .admin-body { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    .admin-tabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 2px solid #e2e8f0; }
+    .tab-btn {
+      padding: 10px 24px; border: none; background: none; cursor: pointer;
+      font-size: .9rem; font-weight: 600; color: #718096; border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+    }
+    .tab-btn.active { color: #1a5c3a; border-color: #1a5c3a; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cards */
+    .card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+    .card h2 { font-size: 1rem; margin-bottom: 16px; color: #2d3748; }
+
+    /* Availability grid */
+    .avail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .doctor-card { background: #fff; border-radius: 12px; padding: 20px; border: 2px solid #e2e8f0; }
+    .doctor-card h3 { font-size: .95rem; margin-bottom: 4px; }
+    .doctor-card .specialty { font-size: .78rem; color: #718096; margin-bottom: 16px; }
+    .day-row { margin-bottom: 12px; }
+    .day-row label { display: block; font-size: .8rem; font-weight: 700; color: #4a5568; margin-bottom: 6px; text-transform: capitalize; }
+    .slots-input {
+      width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;
+      font-size: .8rem; font-family: monospace; resize: vertical; min-height: 52px;
+    }
+    .slots-input:focus { outline: none; border-color: #2d8653; }
+    .day-hint { font-size: .72rem; color: #a0aec0; margin-top: 3px; }
+    .btn-save-avail {
+      background: #1a5c3a; color: #fff; border: none; border-radius: 8px;
+      padding: 10px 28px; cursor: pointer; font-weight: 700; font-size: .9rem; margin-top: 8px;
+    }
+    .btn-save-avail:hover { background: #2d8653; }
+    .save-msg { font-size: .82rem; color: #2d8653; margin-left: 12px; display: none; }
+
+    /* Bookings table */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+    th { text-align: left; padding: 10px 12px; background: #f7fafc; color: #4a5568; font-weight: 700; border-bottom: 2px solid #e2e8f0; white-space: nowrap; }
+    td { padding: 10px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
+    tr:hover td { background: #f7fafc; }
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: .72rem;
+      font-weight: 700; text-transform: uppercase;
+    }
+    .badge-new { background: #e6fffa; color: #234e52; }
+    .badge-returning { background: #ebf8ff; color: #2a4365; }
+    .empty-state { text-align: center; color: #a0aec0; padding: 48px 20px; font-size: .9rem; }
+    .btn-clear {
+      background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; border-radius: 6px;
+      padding: 6px 16px; cursor: pointer; font-size: .82rem; font-weight: 600;
+    }
+    .btn-clear:hover { background: #fff; border-color: #e53e3e; }
+    .btn-export {
+      background: #f0faf4; color: #276749; border: 1px solid #9ae6b4; border-radius: 6px;
+      padding: 6px 16px; cursor: pointer; font-size: .82rem; font-weight: 600;
+    }
+    .btn-export:hover { background: #c6f6d5; }
+
+    /* Info box */
+    .info-box { background: #ebf8ff; border: 1px solid #bee3f8; border-radius: 10px; padding: 16px 20px; font-size: .85rem; color: #2b6cb0; line-height: 1.6; margin-bottom: 20px; }
+    .info-box strong { display: block; margin-bottom: 4px; }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: .82rem; }
+
+    /* Legend */
+    .legend { font-size: .78rem; color: #718096; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div id="login-screen">
+  <div class="login-card">
+    <h1>+ Stomatologico Cremonese</h1>
+    <p>Accesso riservato al personale amministrativo.</p>
+    <div class="field">
+      <label for="admin-user">Utente</label>
+      <input id="admin-user" type="text" autocomplete="username" placeholder="admin">
+    </div>
+    <div class="field">
+      <label for="admin-pass">Password</label>
+      <input id="admin-pass" type="password" autocomplete="current-password" placeholder="••••••">
+    </div>
+    <button class="btn-login" id="btn-login">Accedi</button>
+    <p id="login-error">Credenziali non valide.</p>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div id="admin-screen">
+  <header class="admin-header">
+    <h1>Pannello Admin — Stomatologico Cremonese</h1>
+    <button class="btn-logout" id="btn-logout">Esci</button>
+  </header>
+
+  <div class="admin-body">
+    <div class="admin-tabs" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="bookings">Prenotazioni Ricevute</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="availability">Gestione Disponibilità</button>
+    </div>
+
+    <!-- TAB: BOOKINGS -->
+    <div class="tab-panel active" id="tab-bookings">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+          <h2 style="margin:0">Prenotazioni ricevute (salvate in questo browser)</h2>
+          <div style="display:flex;gap:8px">
+            <button class="btn-export" id="btn-export-bookings">Esporta CSV</button>
+            <button class="btn-clear" id="btn-clear-bookings">Svuota lista</button>
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>Come funziona</strong>
+          Le prenotazioni vengono salvate nel browser del paziente (localStorage) al momento dell'invio del modulo.
+          Quelle visibili qui sono quelle inviate da <em>questo dispositivo</em>.
+          Per ricevere prenotazioni reali via email, configura un servizio come
+          <strong>Formspree</strong> o <strong>EmailJS</strong> nel file <code>js/booking.js</code> (variabile <code>BOOKING_API_URL</code>).
+        </div>
+        <div id="bookings-container"></div>
+      </div>
+    </div>
+
+    <!-- TAB: AVAILABILITY -->
+    <div class="tab-panel" id="tab-availability">
+      <div class="info-box">
+        <strong>Come modificare la disponibilità</strong>
+        Modifica gli orari per ciascun medico e giorno, poi clicca <strong>Salva e Scarica JSON</strong>.
+        Riceverai un file <code>doctors.json</code> da caricare nella cartella <code>data/</code>
+        del repository GitHub (<code>martuzzii/stomatologico-cremonese-</code>) per rendere le modifiche visibili online.
+      </div>
+      <p class="legend">Inserisci gli orari separati da virgola, es. <code>09:00, 09:30, 10:00</code> — lascia vuoto se il medico non è disponibile quel giorno.</p>
+      <div class="avail-grid" id="avail-grid"></div>
+      <div style="margin-top:8px">
+        <button class="btn-save-avail" id="btn-save-avail">Salva e Scarica JSON</button>
+        <span class="save-msg" id="save-msg">✔ File scaricato!</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Auth ── */
+  const ADMIN_USER = 'admin';
+  const ADMIN_PASS = 'clinica2025'; // change this password after first login
+  const SESSION_KEY = 'sc_admin_session';
+
+  function isLoggedIn() {
+    return sessionStorage.getItem(SESSION_KEY) === '1';
+  }
+
+  function showAdmin() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-screen').style.display = 'block';
+    loadAll();
+  }
+
+  if (isLoggedIn()) showAdmin();
+
+  document.getElementById('btn-login').addEventListener('click', function () {
+    const user = document.getElementById('admin-user').value.trim();
+    const pass = document.getElementById('admin-pass').value;
+    if (user === ADMIN_USER && pass === ADMIN_PASS) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      showAdmin();
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  });
+
+  document.getElementById('admin-pass').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('btn-login').click();
+  });
+
+  document.getElementById('btn-logout').addEventListener('click', function () {
+    sessionStorage.removeItem(SESSION_KEY);
+    location.reload();
+  });
+
+  /* ── Tabs ── */
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(function (p) {
+        p.classList.remove('active');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* ── Helpers ── */
+  function esc(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  /* ── Bookings ── */
+  function getBookings() {
+    try { return JSON.parse(localStorage.getItem('sc_bookings') || '[]'); } catch (e) { return []; }
+  }
+
+  function renderBookings() {
+    const container = document.getElementById('bookings-container');
+    const list = getBookings();
+    if (list.length === 0) {
+      container.innerHTML = '<div class="empty-state">Nessuna prenotazione ricevuta su questo dispositivo.</div>';
+      return;
+    }
+    const rows = list.map(function (b) {
+      const date = b.receivedAt ? new Date(b.receivedAt).toLocaleString('it-IT') : '—';
+      const badge = b.patientType === 'returning'
+        ? '<span class="badge badge-returning">Esistente</span>'
+        : '<span class="badge badge-new">Nuovo</span>';
+      return '<tr>' +
+        '<td>' + esc(date) + '</td>' +
+        '<td>' + badge + '</td>' +
+        '<td>' + esc(b.firstName) + ' ' + esc(b.lastName) + '</td>' +
+        '<td>' + esc(b.email) + '</td>' +
+        '<td>' + esc(b.phone) + '</td>' +
+        '<td>' + esc(b.specialty) + '</td>' +
+        '<td>' + esc(b.doctorName) + '</td>' +
+        '<td>' + esc(b.date) + ' ' + esc(b.time) + '</td>' +
+        '</tr>';
+    }).join('');
+    container.innerHTML = '<div class="table-wrap"><table>' +
+      '<thead><tr><th>Ricevuta il</th><th>Tipo</th><th>Paziente</th><th>Email</th><th>Telefono</th><th>Specialità</th><th>Medico</th><th>Appuntamento</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div>';
+  }
+
+  document.getElementById('btn-clear-bookings').addEventListener('click', function () {
+    if (confirm('Eliminare tutte le prenotazioni salvate in questo browser?')) {
+      localStorage.removeItem('sc_bookings');
+      renderBookings();
+    }
+  });
+
+  document.getElementById('btn-export-bookings').addEventListener('click', function () {
+    const list = getBookings();
+    if (list.length === 0) { alert('Nessuna prenotazione da esportare.'); return; }
+    const headers = ['Data ricezione','Tipo','Nome','Cognome','Email','Telefono','Specialità','Medico','Data visita','Orario'];
+    const csvRows = [headers.join(',')].concat(list.map(function (b) {
+      return [
+        b.receivedAt || '',
+        b.patientType || '',
+        b.firstName || '',
+        b.lastName || '',
+        b.email || '',
+        b.phone || '',
+        b.specialty || '',
+        b.doctorName || '',
+        b.date || '',
+        b.time || ''
+      ].map(function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(',');
+    }));
+    const blob = new Blob([csvRows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'prenotazioni_' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  /* ── Availability ── */
+  const DAYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+  const DAY_IT = { monday:'Lunedì', tuesday:'Martedì', wednesday:'Mercoledì',
+                   thursday:'Giovedì', friday:'Venerdì', saturday:'Sabato', sunday:'Domenica' };
+  const AVAIL_KEY = 'sc_admin_avail';
+
+  // Default data (mirrors data/doctors.json)
+  const DEFAULT_DOCTORS = [
+    {
+      id: 'dr-rossi', name: 'Dr. Marco Rossi', specialty: 'otorinolaringoiatria',
+      title: 'Specialista in Otorinolaringoiatria',
+      bio: 'Oltre 15 anni di esperienza in otorinolaringoiatria clinica e chirurgica.',
+      availability: {
+        monday:    ['09:00','09:30','10:00','10:30','11:00','14:00','14:30','15:00','15:30','16:00'],
+        wednesday: ['09:00','09:30','10:00','10:30','11:00','14:00','14:30','15:00'],
+        friday:    ['09:00','09:30','10:00','10:30','11:00']
+      }
+    },
+    {
+      id: 'dr-ferrari', name: 'Dr.ssa Elena Ferrari', specialty: 'odontoiatria',
+      title: 'Specialista in Odontoiatria e Chirurgia Orale',
+      bio: 'Esperta in implantologia, ortodonzia e odontoiatria conservativa.',
+      availability: {
+        tuesday:  ['08:30','09:00','09:30','10:00','10:30','11:00','15:00','15:30','16:00','16:30'],
+        thursday: ['08:30','09:00','09:30','10:00','10:30','11:00','14:00','14:30','15:00'],
+        saturday: ['09:00','09:30','10:00','10:30','11:00']
+      }
+    },
+    {
+      id: 'dr-bianchi', name: 'Dr.ssa Sofia Bianchi', specialty: 'medicina-estetica',
+      title: 'Specialista in Medicina Estetica',
+      bio: 'Specializzata in trattamenti estetici non invasivi e ringiovanimento.',
+      availability: {
+        monday:   ['14:00','14:30','15:00','15:30','16:00','16:30','17:00'],
+        thursday: ['14:00','14:30','15:00','15:30','16:00','16:30','17:00'],
+        friday:   ['10:00','10:30','11:00','11:30','14:00','14:30','15:00']
+      }
+    }
+  ];
+
+  function loadAvailData() {
+    try {
+      const raw = localStorage.getItem(AVAIL_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return JSON.parse(JSON.stringify(DEFAULT_DOCTORS));
+  }
+
+  function renderAvailability() {
+    const grid = document.getElementById('avail-grid');
+    const doctors = loadAvailData();
+    grid.innerHTML = doctors.map(function (doc) {
+      const dayRows = DAYS.map(function (day) {
+        const slots = (doc.availability[day] || []).join(', ');
+        return '<div class="day-row">' +
+          '<label for="' + doc.id + '-' + day + '">' + DAY_IT[day] + '</label>' +
+          '<textarea class="slots-input" id="' + doc.id + '-' + day + '" ' +
+            'data-doctor="' + doc.id + '" data-day="' + day + '" rows="2">' +
+            esc(slots) + '</textarea>' +
+          '<p class="day-hint">Formato: 09:00, 09:30, 10:00 — vuoto = non disponibile</p>' +
+          '</div>';
+      }).join('');
+      return '<div class="doctor-card">' +
+        '<h3>' + esc(doc.name) + '</h3>' +
+        '<p class="specialty">' + esc(doc.specialty) + '</p>' +
+        dayRows +
+        '</div>';
+    }).join('');
+  }
+
+  document.getElementById('btn-save-avail').addEventListener('click', function () {
+    const doctors = loadAvailData();
+
+    document.querySelectorAll('.slots-input').forEach(function (textarea) {
+      const docId = textarea.dataset.doctor;
+      const day   = textarea.dataset.day;
+      const doc   = doctors.find(function (d) { return d.id === docId; });
+      if (!doc) return;
+      const raw = textarea.value.trim();
+      if (!raw) {
+        delete doc.availability[day];
+        return;
+      }
+      const slots = raw.split(',').map(function (s) { return s.trim(); }).filter(function (s) {
+        return /^\d{2}:\d{2}$/.test(s);
+      });
+      if (slots.length > 0) {
+        doc.availability[day] = slots;
+      } else {
+        delete doc.availability[day];
+      }
+    });
+
+    // Persist to localStorage so booking.js picks it up on the same device
+    localStorage.setItem(AVAIL_KEY, JSON.stringify(doctors));
+
+    // Download doctors.json for GitHub commit
+    const json = JSON.stringify({ doctors: doctors }, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = 'doctors.json';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    const msg = document.getElementById('save-msg');
+    msg.style.display = 'inline';
+    setTimeout(function () { msg.style.display = 'none'; }, 3000);
+  });
+
+  /* ── Init ── */
+  function loadAll() {
+    renderBookings();
+    renderAvailability();
+  }
+
+})();
+</script>
+</body>
+</html>

@@ -5,14 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prenota una Visita | Stomatologico Cremonese Cremona</title>
   <meta name="description" content="Prenota online la tua visita specialistica a Cremona. Scegli specialità, medico e orario. Conferma immediata via email.">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/stomatologico-cremonese-/css/style.css">
+  <style>
+    /* ── Booking layout ── */
+    .booking-wrapper { max-width: 860px; margin: 0 auto; padding: var(--space-10) var(--space-4); }
+    .booking-progress { display: flex; gap: 0; margin-bottom: var(--space-10); counter-reset: step; }
+    .booking-progress__step {
+      flex: 1; text-align: center; font-size: .8rem; font-weight: 600;
+      color: var(--text-tertiary, #999); padding: var(--space-3) var(--space-2);
+      border-bottom: 3px solid #e2e8f0; position: relative; counter-increment: step;
+    }
+    .booking-progress__step::before {
+      content: counter(step); display: block; width: 28px; height: 28px;
+      border-radius: 50%; background: #e2e8f0; color: #999;
+      line-height: 28px; margin: 0 auto var(--space-2); font-size: .85rem;
+    }
+    .booking-progress__step.active { color: var(--green-dark, #1a5c3a); border-color: var(--green-dark, #1a5c3a); }
+    .booking-progress__step.active::before { background: var(--green-dark, #1a5c3a); color: #fff; }
+    .booking-progress__step.completed { color: var(--green-mid, #2d8653); border-color: var(--green-mid, #2d8653); }
+    .booking-progress__step.completed::before { background: var(--green-mid, #2d8653); color: #fff; }
+
+    /* ── Step panels ── */
+    .booking-step { display: none; }
+    .booking-step.active { display: block; }
+
+    /* ── Selection cards (specialty / doctor) ── */
+    .selection-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6); }
+    .selection-card {
+      border: 2px solid #e2e8f0; border-radius: 12px; padding: var(--space-5);
+      cursor: pointer; transition: border-color .2s, box-shadow .2s;
+      text-align: center; background: #fff;
+    }
+    .selection-card:hover { border-color: var(--green-mid, #2d8653); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .selection-card.selected { border-color: var(--green-dark, #1a5c3a); background: #f0faf4; }
+    .selection-card__icon { font-size: 2rem; margin-bottom: var(--space-2); }
+    .selection-card__name { font-weight: 700; color: var(--text-primary, #111); }
+    .selection-card__meta { font-size: .82rem; color: var(--text-secondary, #555); margin-top: 4px; }
+
+    /* ── Calendar ── */
+    .calendar-timeslot-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-6); }
+    @media (max-width: 640px) { .calendar-timeslot-layout { grid-template-columns: 1fr; } }
+    .calendar { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
+    .calendar__header { display: flex; justify-content: space-between; align-items: center; background: var(--green-dark, #1a5c3a); color: #fff; padding: var(--space-3) var(--space-4); }
+    .calendar__nav-btn { background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; padding: 0 var(--space-2); line-height: 1; }
+    .calendar__month-year { font-weight: 700; font-size: 1rem; }
+    .calendar__weekdays { display: grid; grid-template-columns: repeat(7, 1fr); background: #f1f5f9; }
+    .calendar__weekday { text-align: center; font-size: .72rem; font-weight: 700; color: var(--text-secondary, #555); padding: var(--space-2) 0; }
+    .calendar__grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+    .calendar__day {
+      text-align: center; padding: var(--space-2) 0; font-size: .85rem;
+      min-height: 36px; line-height: 36px; border-radius: 4px; margin: 2px;
+    }
+    .calendar__day.has-slots { cursor: pointer; color: var(--green-dark, #1a5c3a); font-weight: 700; background: #f0faf4; }
+    .calendar__day.has-slots:hover { background: var(--green-pale, #d4f0e0); }
+    .calendar__day.selected { background: var(--green-dark, #1a5c3a) !important; color: #fff !important; border-radius: 6px; }
+    .calendar__day.disabled, .calendar__day.past { color: #ccc; cursor: default; }
+    .calendar__day.today { font-weight: 900; text-decoration: underline; }
+
+    /* ── Time slots ── */
+    .time-slots__title { font-size: .9rem; font-weight: 700; margin-bottom: var(--space-3); color: var(--text-primary, #111); }
+    .time-slots__grid { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .time-slot {
+      padding: var(--space-2) var(--space-4); border: 2px solid #e2e8f0; border-radius: 8px;
+      cursor: pointer; font-size: .85rem; font-weight: 600; transition: all .15s;
+    }
+    .time-slot:hover { border-color: var(--green-mid, #2d8653); background: #f0faf4; }
+    .time-slot.selected { border-color: var(--green-dark, #1a5c3a); background: var(--green-dark, #1a5c3a); color: #fff; }
+    .time-slots__empty { color: var(--text-secondary, #555); font-size: .9rem; }
+
+    /* ── Patient form ── */
+    .patient-toggle { display: flex; gap: 0; border: 2px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: var(--space-6); width: fit-content; }
+    .patient-toggle__btn { padding: var(--space-2) var(--space-6); border: none; background: #fff; cursor: pointer; font-size: .9rem; font-weight: 600; color: var(--text-secondary, #555); }
+    .patient-toggle__btn.active { background: var(--green-dark, #1a5c3a); color: #fff; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    @media (max-width: 540px) { .form-grid-2 { grid-template-columns: 1fr; } }
+    .form-grid-2 .full { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--space-4); }
+    .form-label { font-size: .85rem; font-weight: 600; color: var(--text-primary, #111); }
+    .form-label .req { color: #e53e3e; }
+    .form-input, .form-textarea {
+      border: 2px solid #e2e8f0; border-radius: 8px; padding: var(--space-3) var(--space-4);
+      font-size: .95rem; width: 100%; transition: border-color .15s;
+    }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--green-mid, #2d8653); }
+    .form-input.is-invalid, .form-textarea.is-invalid { border-color: #e53e3e; }
+    .form-input.is-valid { border-color: #38a169; }
+    .form-error { font-size: .8rem; color: #e53e3e; margin-top: 2px; }
+    .form-hint { font-size: .78rem; color: var(--text-tertiary, #999); }
+    .gdpr-block { background: #f8f9fa; border-radius: 10px; padding: var(--space-5); margin-top: var(--space-6); }
+    .gdpr-block h3 { font-size: .95rem; margin-bottom: var(--space-4); }
+    .checkbox-row { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-4); }
+    .checkbox-row input[type=checkbox] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; }
+    .checkbox-row label { font-size: .85rem; color: var(--text-secondary, #555); cursor: pointer; }
+
+    /* ── Navigation ── */
+    .booking-nav { display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid #e2e8f0; }
+    .btn-back { background: none; border: 2px solid #e2e8f0; border-radius: 8px; padding: var(--space-3) var(--space-6); cursor: pointer; font-weight: 600; color: var(--text-secondary, #555); font-size: .95rem; }
+    .btn-back:hover { border-color: #999; }
+    .btn-next { background: var(--green-dark, #1a5c3a); color: #fff; border: none; border-radius: 8px; padding: var(--space-3) var(--space-8); cursor: pointer; font-weight: 700; font-size: .95rem; }
+    .btn-next:hover { background: var(--green-mid, #2d8653); }
+    .btn-next.loading { opacity: .6; pointer-events: none; }
+
+    /* ── Alert helpers ── */
+    .alert { border-radius: 10px; padding: var(--space-4) var(--space-5); font-size: .9rem; margin-bottom: var(--space-4); }
+    .alert-info { background: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; }
+    .alert-success { background: #f0faf4; color: #276749; border: 1px solid #9ae6b4; }
+    .alert-error { background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; }
+    .step-subtitle { font-size: .95rem; color: var(--text-secondary, #555); margin-bottom: var(--space-6); }
+  </style>
 </head>
 <body>
 
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="/index.html" class="logo" aria-label="Stomatologico Cremonese – torna alla home">
+      <a href="/stomatologico-cremonese-/index.html" class="logo" aria-label="Stomatologico Cremonese – torna alla home">
         <span class="logo-icon" aria-hidden="true">+</span>
         <span class="logo-text">Stomatologico Cremonese</span>
       </a>
@@ -23,20 +130,20 @@
           <span class="hamburger-bar"></span>
         </button>
         <ul id="nav-menu" class="nav-list" role="list">
-          <li><a href="/index.html">Home</a></li>
+          <li><a href="/stomatologico-cremonese-/index.html">Home</a></li>
           <li class="nav-dropdown">
             <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
               Specialità <span aria-hidden="true">▾</span>
             </button>
             <ul class="dropdown-menu" role="list">
-              <li><a href="/pages/specialties/otorinolaringoiatria.html">Otorinolaringoiatria</a></li>
-              <li><a href="/pages/specialties/odontoiatria.html">Odontoiatria</a></li>
-              <li><a href="/pages/specialties/medicina-estetica.html">Medicina Estetica</a></li>
+              <li><a href="/stomatologico-cremonese-/pages/specialties/otorinolaringoiatria.html">Otorinolaringoiatria</a></li>
+              <li><a href="/stomatologico-cremonese-/pages/specialties/odontoiatria.html">Odontoiatria</a></li>
+              <li><a href="/stomatologico-cremonese-/pages/specialties/medicina-estetica.html">Medicina Estetica</a></li>
             </ul>
           </li>
-          <li><a href="/pages/chi-siamo.html">Chi Siamo</a></li>
-          <li><a href="/pages/contatti.html">Contatti</a></li>
-          <li><a href="/pages/prenota.html" class="nav-cta" aria-current="page">Prenota</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/chi-siamo.html">Chi Siamo</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/contatti.html">Contatti</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/prenota.html" class="nav-cta" aria-current="page">Prenota</a></li>
         </ul>
       </nav>
     </div>
@@ -46,460 +153,137 @@
   <section class="page-hero page-hero--green" aria-labelledby="hero-title">
     <div class="container">
       <h1 id="hero-title">Prenota una Visita</h1>
-      <p>Compila il modulo in pochi passi e ricevi conferma immediata via email.</p>
+      <p>Scegli specialità, medico e orario in pochi passi. Ricevi conferma immediata.</p>
     </div>
   </section>
 
-  <!-- ===== MULTI-STEP BOOKING ===== -->
-  <main id="main-content" class="booking-wrapper container" aria-label="Modulo di prenotazione">
+  <!-- ===== BOOKING WIDGET ===== -->
+  <main id="main-content" aria-label="Modulo di prenotazione">
+    <div class="booking-wrapper container">
 
-    <!-- PROGRESS BAR -->
-    <nav class="progress-bar" aria-label="Passaggi della prenotazione">
-      <ol class="progress-list" role="list">
-        <li class="progress-step progress-step--active" data-step="1" id="progress-1" aria-current="step">
-          <span class="step-number" aria-hidden="true">1</span>
-          <span class="step-label">Specialità e Medico</span>
-        </li>
-        <li class="progress-step" data-step="2" id="progress-2">
-          <span class="step-number" aria-hidden="true">2</span>
-          <span class="step-label">Data e Orario</span>
-        </li>
-        <li class="progress-step" data-step="3" id="progress-3">
-          <span class="step-number" aria-hidden="true">3</span>
-          <span class="step-label">I Tuoi Dati</span>
-        </li>
-        <li class="progress-step" data-step="4" id="progress-4">
-          <span class="step-number" aria-hidden="true">4</span>
-          <span class="step-label">Conferma</span>
-        </li>
-      </ol>
-      <div class="progress-track" aria-hidden="true">
-        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      <!-- PROGRESS -->
+      <nav class="booking-progress" aria-label="Passaggi della prenotazione">
+        <div class="booking-progress__step active" id="prog-1">Specialità e Medico</div>
+        <div class="booking-progress__step" id="prog-2">Data e Orario</div>
+        <div class="booking-progress__step" id="prog-3">I Tuoi Dati</div>
+      </nav>
+
+      <!-- STEP 1 -->
+      <div class="booking-step active" id="booking-step-1" aria-label="Passo 1: Specialità e Medico">
+        <h2 class="step-title">Scegli la Specialità</h2>
+        <p class="step-subtitle">Seleziona prima la specialità, poi il medico che preferisci.</p>
+        <div id="specialty-selection"><!-- rendered by booking.js --></div>
+        <div id="doctor-selection"><!-- rendered by booking.js --></div>
       </div>
-    </nav>
 
-    <form id="booking-form" novalidate aria-label="Prenotazione visita medica">
-
-      <!-- ===== STEP 1 ===== -->
-      <fieldset class="booking-step booking-step--active" id="step-1" aria-labelledby="step1-legend">
-        <legend id="step1-legend" class="step-title">
-          <span class="step-num" aria-hidden="true">1.</span> Scegli la Specialità e il Medico
-        </legend>
-
-        <div class="form-section">
-          <p class="form-label-heading" id="specialty-label">Seleziona la Specialità</p>
-          <div class="radio-cards" role="radiogroup" aria-labelledby="specialty-label">
-
-            <label class="radio-card" for="spec-orl">
-              <input type="radio" name="specialita" id="spec-orl" value="Otorinolaringoiatria" required>
-              <span class="radio-card__inner">
-                <span class="radio-card__icon" aria-hidden="true">👂</span>
-                <span class="radio-card__title">Otorinolaringoiatria</span>
-                <span class="radio-card__subtitle">Orecchio, Naso, Gola</span>
-              </span>
-            </label>
-
-            <label class="radio-card" for="spec-odonto">
-              <input type="radio" name="specialita" id="spec-odonto" value="Odontoiatria">
-              <span class="radio-card__inner">
-                <span class="radio-card__icon" aria-hidden="true">🦷</span>
-                <span class="radio-card__title">Odontoiatria</span>
-                <span class="radio-card__subtitle">Salute dentale e orale</span>
-              </span>
-            </label>
-
-            <label class="radio-card" for="spec-estetica">
-              <input type="radio" name="specialita" id="spec-estetica" value="Medicina Estetica">
-              <span class="radio-card__inner">
-                <span class="radio-card__icon" aria-hidden="true">✨</span>
-                <span class="radio-card__title">Medicina Estetica</span>
-                <span class="radio-card__subtitle">Trattamenti estetici medici</span>
-              </span>
-            </label>
-
-          </div>
-          <div class="field-error" id="specialty-error" role="alert" aria-live="polite"></div>
-        </div>
-
-        <!-- Doctor selection (shown dynamically by booking.js) -->
-        <div class="form-section" id="doctor-section" hidden>
-          <p class="form-label-heading" id="doctor-label">Seleziona il Medico</p>
-          <div class="radio-cards radio-cards--doctors" role="radiogroup" aria-labelledby="doctor-label" id="doctor-cards">
-            <!-- Rendered by booking.js based on specialty selection -->
-          </div>
-          <div class="field-error" id="doctor-error" role="alert" aria-live="polite"></div>
-        </div>
-
-        <div class="form-section">
-          <p class="form-label-heading" id="patient-type-label">Tipo di Paziente</p>
-          <div class="toggle-group" role="radiogroup" aria-labelledby="patient-type-label">
-            <label class="toggle-option" for="paziente-nuovo">
-              <input type="radio" name="tipo_paziente" id="paziente-nuovo" value="nuovo" checked>
-              <span class="toggle-option__label">Paziente Nuovo</span>
-            </label>
-            <label class="toggle-option" for="paziente-esistente">
-              <input type="radio" name="tipo_paziente" id="paziente-esistente" value="esistente">
-              <span class="toggle-option__label">Paziente Esistente</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn--primary btn--next" data-next="2" aria-label="Avanti al passo 2: Scegli Data e Orario">
-            Avanti <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </fieldset>
-
-      <!-- ===== STEP 2 ===== -->
-      <fieldset class="booking-step" id="step-2" aria-labelledby="step2-legend" hidden>
-        <legend id="step2-legend" class="step-title">
-          <span class="step-num" aria-hidden="true">2.</span> Scegli Data e Orario
-        </legend>
-
+      <!-- STEP 2 -->
+      <div class="booking-step" id="booking-step-2" aria-label="Passo 2: Data e Orario">
+        <h2 class="step-title">Scegli Data e Orario</h2>
+        <div id="step2-doctor-info"></div>
         <div class="calendar-timeslot-layout">
-          <!-- Mini Calendar -->
-          <div class="calendar-wrapper">
-            <div id="booking-calendar" role="application" aria-label="Calendario prenotazione">
-              <!-- Rendered by /js/booking.js -->
-              <div class="calendar-nav" aria-label="Navigazione mese calendario">
-                <button type="button" id="cal-prev" aria-label="Mese precedente">&#8249;</button>
-                <span id="cal-month-label" class="calendar-month-label" aria-live="polite"></span>
-                <button type="button" id="cal-next" aria-label="Mese successivo">&#8250;</button>
-              </div>
-              <table class="calendar-grid" role="grid" aria-labelledby="cal-month-label">
-                <thead>
-                  <tr>
-                    <th scope="col" abbr="Lunedì">Lun</th>
-                    <th scope="col" abbr="Martedì">Mar</th>
-                    <th scope="col" abbr="Mercoledì">Mer</th>
-                    <th scope="col" abbr="Giovedì">Gio</th>
-                    <th scope="col" abbr="Venerdì">Ven</th>
-                    <th scope="col" abbr="Sabato">Sab</th>
-                    <th scope="col" abbr="Domenica">Dom</th>
-                  </tr>
-                </thead>
-                <tbody id="cal-body">
-                  <!-- Rows injected by booking.js -->
-                </tbody>
-              </table>
+          <div>
+            <p class="step-subtitle" style="margin-bottom:var(--space-3)">I giorni evidenziati hanno disponibilità.</p>
+            <div id="booking-calendar"><!-- rendered by booking.js --></div>
+            <div id="date-error" class="form-error" role="alert" aria-live="polite"></div>
+          </div>
+          <div>
+            <div id="time-slots-container">
+              <p class="time-slots__empty">Seleziona prima una data nel calendario.</p>
             </div>
-            <div class="field-error" id="date-error" role="alert" aria-live="polite"></div>
+            <div id="time-error" class="form-error" role="alert" aria-live="polite"></div>
           </div>
-
-          <!-- Time Slots -->
-          <div class="timeslot-wrapper">
-            <p class="form-label-heading" id="timeslot-heading">Orari Disponibili</p>
-            <div id="timeslot-grid" class="timeslot-grid" role="radiogroup" aria-labelledby="timeslot-heading">
-              <!-- Rendered by booking.js based on selected date and doctor -->
-              <p class="timeslot-placeholder" id="timeslot-placeholder">Seleziona prima una data nel calendario.</p>
-            </div>
-            <div class="field-error" id="time-error" role="alert" aria-live="polite"></div>
-          </div>
-        </div>
-
-        <!-- Selected summary -->
-        <div class="selection-summary" id="datetime-summary" aria-live="polite" aria-atomic="true" hidden>
-          <strong>Appuntamento selezionato:</strong>
-          <span id="summary-datetime"></span>
-        </div>
-
-        <div class="step-actions step-actions--two">
-          <button type="button" class="btn btn--outline btn--back" data-back="1" aria-label="Torna al passo 1: Specialità e Medico">
-            <span aria-hidden="true">←</span> Indietro
-          </button>
-          <button type="button" class="btn btn--primary btn--next" data-next="3" aria-label="Avanti al passo 3: I Tuoi Dati">
-            Avanti <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </fieldset>
-
-      <!-- ===== STEP 3 ===== -->
-      <fieldset class="booking-step" id="step-3" aria-labelledby="step3-legend" hidden>
-        <legend id="step3-legend" class="step-title">
-          <span class="step-num" aria-hidden="true">3.</span> I Tuoi Dati
-        </legend>
-
-        <div class="form-grid form-grid--two">
-
-          <div class="form-group">
-            <label for="nome" class="form-label">Nome <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              class="form-input"
-              required
-              autocomplete="given-name"
-              aria-required="true"
-              aria-describedby="nome-error"
-              placeholder="Es. Mario">
-            <div class="field-error" id="nome-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="cognome" class="form-label">Cognome <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              class="form-input"
-              required
-              autocomplete="family-name"
-              aria-required="true"
-              aria-describedby="cognome-error"
-              placeholder="Es. Rossi">
-            <div class="field-error" id="cognome-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="data-nascita" class="form-label">Data di Nascita <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="date"
-              id="data-nascita"
-              name="data_nascita"
-              class="form-input"
-              required
-              autocomplete="bday"
-              aria-required="true"
-              aria-describedby="dob-error">
-            <div class="field-error" id="dob-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="form-group" id="cf-group">
-            <label for="codice-fiscale" class="form-label">Codice Fiscale <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="text"
-              id="codice-fiscale"
-              name="codice_fiscale"
-              class="form-input"
-              required
-              autocomplete="off"
-              maxlength="16"
-              pattern="[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]"
-              aria-required="true"
-              aria-describedby="cf-error"
-              placeholder="Es. RSSMRA80A01H501Z"
-              style="text-transform:uppercase">
-            <div class="field-error" id="cf-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="form-label">Email <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-input"
-              required
-              autocomplete="email"
-              aria-required="true"
-              aria-describedby="email-error"
-              placeholder="nome@esempio.it">
-            <div class="field-error" id="email-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono" class="form-label">Telefono <span class="required" aria-label="obbligatorio">*</span></label>
-            <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              class="form-input"
-              required
-              autocomplete="tel"
-              aria-required="true"
-              aria-describedby="tel-error"
-              placeholder="+39 333 1234567">
-            <div class="field-error" id="tel-error" role="alert" aria-live="polite"></div>
-          </div>
-
-        </div>
-
-        <!-- Extra fields for new patients -->
-        <div id="new-patient-fields" class="new-patient-section">
-          <h3 class="section-subheading">Dati Aggiuntivi — Paziente Nuovo</h3>
-          <div class="form-grid form-grid--two">
-
-            <div class="form-group form-group--full">
-              <label for="indirizzo" class="form-label">Indirizzo <span class="required" aria-label="obbligatorio">*</span></label>
-              <input
-                type="text"
-                id="indirizzo"
-                name="indirizzo"
-                class="form-input"
-                autocomplete="street-address"
-                aria-describedby="indirizzo-error"
-                placeholder="Via Roma 10">
-              <div class="field-error" id="indirizzo-error" role="alert" aria-live="polite"></div>
-            </div>
-
-            <div class="form-group">
-              <label for="citta" class="form-label">Città <span class="required" aria-label="obbligatorio">*</span></label>
-              <input
-                type="text"
-                id="citta"
-                name="citta"
-                class="form-input"
-                autocomplete="address-level2"
-                aria-describedby="citta-error"
-                placeholder="Cremona">
-              <div class="field-error" id="citta-error" role="alert" aria-live="polite"></div>
-            </div>
-
-            <div class="form-group">
-              <label for="cap" class="form-label">CAP <span class="required" aria-label="obbligatorio">*</span></label>
-              <input
-                type="text"
-                id="cap"
-                name="cap"
-                class="form-input"
-                autocomplete="postal-code"
-                maxlength="5"
-                pattern="[0-9]{5}"
-                aria-describedby="cap-error"
-                placeholder="26100">
-              <div class="field-error" id="cap-error" role="alert" aria-live="polite"></div>
-            </div>
-
-            <div class="form-group form-group--full">
-              <label for="medico-base" class="form-label">Medico di Base</label>
-              <input
-                type="text"
-                id="medico-base"
-                name="medico_base"
-                class="form-input"
-                autocomplete="off"
-                placeholder="Cognome e Nome del medico di medicina generale">
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Note / Motivo visita -->
-        <div class="form-group form-group--full" style="margin-top:1.5rem">
-          <label for="note" class="form-label">Motivo della Visita / Note</label>
-          <textarea
-            id="note"
-            name="note"
-            class="form-textarea"
-            rows="4"
-            autocomplete="off"
-            aria-describedby="note-hint"
-            placeholder="Descrivi brevemente il motivo della visita o eventuali sintomi rilevanti…"></textarea>
-          <p id="note-hint" class="form-hint">Facoltativo. Non inserire dati sensibili non richiesti.</p>
-        </div>
-
-        <!-- GDPR Consents -->
-        <div class="gdpr-section" aria-labelledby="gdpr-heading">
-          <h3 id="gdpr-heading" class="section-subheading">Consensi Privacy (GDPR)</h3>
-
-          <div class="checkbox-group">
-            <label class="checkbox-label" for="gdpr-1">
-              <input
-                type="checkbox"
-                id="gdpr-1"
-                name="gdpr_privacy"
-                class="checkbox-input"
-                required
-                aria-required="true"
-                aria-describedby="gdpr1-error">
-              <span class="checkbox-custom" aria-hidden="true"></span>
-              <span class="checkbox-text">
-                <strong>Obbligatorio.</strong> Ho letto e accetto l'
-                <a href="/pages/privacy-policy.html" target="_blank" rel="noopener">Informativa sulla Privacy</a>.
-                Acconsento al trattamento dei miei dati personali per la gestione della prenotazione.
-                <span class="required" aria-label="obbligatorio">*</span>
-              </span>
-            </label>
-            <div class="field-error" id="gdpr1-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="checkbox-group">
-            <label class="checkbox-label" for="gdpr-2">
-              <input
-                type="checkbox"
-                id="gdpr-2"
-                name="gdpr_sanitario"
-                class="checkbox-input"
-                required
-                aria-required="true"
-                aria-describedby="gdpr2-error">
-              <span class="checkbox-custom" aria-hidden="true"></span>
-              <span class="checkbox-text">
-                <strong>Obbligatorio.</strong> Acconsento al trattamento dei dati sanitari (categoria speciale
-                ex art. 9 GDPR) per finalità di cura medica da parte dello Stomatologico Cremonese.
-                <span class="required" aria-label="obbligatorio">*</span>
-              </span>
-            </label>
-            <div class="field-error" id="gdpr2-error" role="alert" aria-live="polite"></div>
-          </div>
-
-          <div class="checkbox-group">
-            <label class="checkbox-label" for="gdpr-3">
-              <input
-                type="checkbox"
-                id="gdpr-3"
-                name="gdpr_marketing"
-                class="checkbox-input">
-              <span class="checkbox-custom" aria-hidden="true"></span>
-              <span class="checkbox-text">
-                <strong>Facoltativo.</strong> Acconsento all'invio di comunicazioni promozionali e newsletter
-                da parte dello Stomatologico Cremonese.
-              </span>
-            </label>
-          </div>
-
-        </div>
-
-        <div class="step-actions step-actions--two">
-          <button type="button" class="btn btn--outline btn--back" data-back="2" aria-label="Torna al passo 2: Data e Orario">
-            <span aria-hidden="true">←</span> Indietro
-          </button>
-          <button type="submit" class="btn btn--primary btn--submit" id="submit-btn">
-            Conferma Prenotazione
-          </button>
-        </div>
-      </fieldset>
-
-      <!-- ===== STEP 4: CONFERMA ===== -->
-      <div class="booking-step" id="step-4" hidden aria-labelledby="conferma-heading">
-        <div class="conferma-box" role="region" aria-labelledby="conferma-heading">
-          <div class="conferma-icon" aria-hidden="true">✔</div>
-          <h2 id="conferma-heading" class="conferma-title">Prenotazione Ricevuta!</h2>
-          <p class="conferma-subtitle">La tua richiesta di appuntamento è stata inviata con successo.</p>
-
-          <div class="conferma-summary" id="conferma-summary" aria-label="Riepilogo prenotazione">
-            <!-- Populated by booking.js -->
-          </div>
-
-          <p class="conferma-email-note">
-            Riceverai una conferma all'indirizzo email indicato entro pochi minuti.
-            Controlla anche la cartella spam.
-          </p>
-
-          <div class="conferma-modify-note">
-            <p>
-              Per modificare o cancellare l'appuntamento chiama
-              <a href="tel:+390372123456" class="phone-link">+39 0372 123456</a>
-              o scrivi a
-              <a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a>
-            </p>
-          </div>
-
-          <a href="/index.html" class="btn btn--primary" style="margin-top:2rem">Torna alla Home</a>
         </div>
       </div>
 
-    </form>
+      <!-- STEP 3 -->
+      <div class="booking-step" id="booking-step-3" aria-label="Passo 3: I Tuoi Dati">
+        <h2 class="step-title">I Tuoi Dati</h2>
+        <div id="booking-summary"></div>
+
+        <div id="patient-type-toggle" class="patient-toggle" role="group" aria-label="Tipo paziente" style="margin-bottom:var(--space-6)">
+          <button type="button" class="patient-toggle__btn active" data-patient-type="new">Paziente Nuovo</button>
+          <button type="button" class="patient-toggle__btn" data-patient-type="returning">Paziente Esistente</button>
+        </div>
+
+        <div id="new-patient-fields">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="field-firstname">Nome <span class="req">*</span></label>
+              <input id="field-firstname" name="firstName" type="text" class="form-input" required autocomplete="given-name" placeholder="Mario">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-lastname">Cognome <span class="req">*</span></label>
+              <input id="field-lastname" name="lastName" type="text" class="form-input" required autocomplete="family-name" placeholder="Rossi">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-email">Email <span class="req">*</span></label>
+              <input id="field-email" name="email" type="email" class="form-input" required autocomplete="email" placeholder="mario@esempio.it">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-phone">Telefono <span class="req">*</span></label>
+              <input id="field-phone" name="phone" type="tel" class="form-input" required autocomplete="tel" placeholder="+39 333 1234567">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-dob">Data di Nascita <span class="req">*</span></label>
+              <input id="field-dob" name="dataNascita" type="date" class="form-input" required autocomplete="bday">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="field-cf">Codice Fiscale <span class="req">*</span></label>
+              <input id="field-cf" name="codiceFiscale" type="text" class="form-input" required maxlength="16"
+                autocomplete="off" placeholder="RSSMRA80A01H501Z" style="text-transform:uppercase">
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="field-note">Motivo della Visita / Note</label>
+              <textarea id="field-note" name="note" class="form-textarea" rows="3"
+                placeholder="Descrivi brevemente il motivo della visita o eventuali sintomi…"></textarea>
+              <p class="form-hint">Facoltativo. Non inserire dati sensibili non richiesti.</p>
+            </div>
+          </div>
+
+          <div class="gdpr-block" aria-labelledby="gdpr-heading">
+            <h3 id="gdpr-heading">Consensi Privacy (GDPR)</h3>
+            <div class="checkbox-row">
+              <input type="checkbox" id="gdpr-privacy" name="gdprPrivacy" required>
+              <label for="gdpr-privacy">
+                <strong>Obbligatorio.</strong> Ho letto e accetto l'
+                <a href="/stomatologico-cremonese-/pages/privacy-policy.html" target="_blank" rel="noopener">Informativa sulla Privacy</a>.
+                Acconsento al trattamento dei miei dati per la gestione della prenotazione.
+              </label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="gdpr-health" name="gdprSanitario" required>
+              <label for="gdpr-health">
+                <strong>Obbligatorio.</strong> Acconsento al trattamento dei dati sanitari (art. 9 GDPR) per finalità di cura medica.
+              </label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="gdpr-marketing" name="gdprMarketing">
+              <label for="gdpr-marketing">
+                <strong>Facoltativo.</strong> Acconsento all'invio di comunicazioni promozionali e newsletter.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAV BUTTONS -->
+      <div class="booking-nav">
+        <button type="button" id="booking-back" class="btn-back" style="visibility:hidden">
+          ← Indietro
+        </button>
+        <button type="button" id="booking-next" class="btn-next">
+          Continua →
+        </button>
+      </div>
+
+    </div><!-- /.booking-wrapper -->
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
-
       <div class="footer-col footer-col--info">
-        <a href="/index.html" class="footer-logo" aria-label="Stomatologico Cremonese">
+        <a href="/stomatologico-cremonese-/index.html" class="footer-logo" aria-label="Stomatologico Cremonese">
           <span class="logo-icon" aria-hidden="true">+</span> Stomatologico Cremonese
         </a>
         <address class="footer-address">
@@ -509,16 +293,14 @@
           <a href="mailto:info@stomatologicocremonese.com">info@stomatologicocremonese.com</a>
         </address>
       </div>
-
       <div class="footer-col footer-col--specialties">
         <h3 class="footer-heading">Specialità</h3>
         <ul role="list" class="footer-list">
-          <li><a href="/pages/specialties/otorinolaringoiatria.html">Otorinolaringoiatria</a></li>
-          <li><a href="/pages/specialties/odontoiatria.html">Odontoiatria</a></li>
-          <li><a href="/pages/specialties/medicina-estetica.html">Medicina Estetica</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/specialties/otorinolaringoiatria.html">Otorinolaringoiatria</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/specialties/odontoiatria.html">Odontoiatria</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/specialties/medicina-estetica.html">Medicina Estetica</a></li>
         </ul>
       </div>
-
       <div class="footer-col footer-col--hours">
         <h3 class="footer-heading">Orari di Apertura</h3>
         <table class="hours-table" aria-label="Orari di apertura">
@@ -528,46 +310,38 @@
             <tr><td>Domenica</td><td>Chiuso</td></tr>
           </tbody>
         </table>
-        <a href="/pages/prenota.html" class="btn btn--primary btn--sm footer-cta">Prenota Ora</a>
+        <a href="/stomatologico-cremonese-/pages/prenota.html" class="btn btn--primary btn--sm footer-cta">Prenota Ora</a>
       </div>
-
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <p>&copy; 2025 Stomatologico Cremonese. P.IVA 01234567890. Tutti i diritti riservati.</p>
         <ul class="footer-legal-links" role="list">
-          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/stomatologico-cremonese-/pages/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <!-- ===== COOKIE BANNER ===== -->
-  <div
-    id="cookie-banner"
-    class="cookie-banner"
-    role="dialog"
-    aria-live="polite"
-    aria-label="Consenso cookie"
-    aria-describedby="cookie-banner-text"
-    hidden>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite"
+       aria-label="Consenso cookie" aria-describedby="cookie-banner-text" hidden>
     <div class="cookie-banner__inner container">
       <p id="cookie-banner-text" class="cookie-banner__text">
         Questo sito utilizza cookie tecnici e, previo consenso, cookie analitici e di profilazione.
-        Consulta la nostra <a href="/pages/privacy-policy.html">Privacy Policy</a> e la
-        <a href="/pages/cookie-policy.html">Cookie Policy</a>.
+        Consulta la nostra <a href="/stomatologico-cremonese-/pages/privacy-policy.html">Privacy Policy</a> e la
+        <a href="/stomatologico-cremonese-/pages/cookie-policy.html">Cookie Policy</a>.
       </p>
       <div class="cookie-banner__actions">
         <button id="cookie-accept-all" class="btn btn--primary btn--sm">Accetta Tutti</button>
         <button id="cookie-accept-necessary" class="btn btn--outline btn--sm">Solo Necessari</button>
-        <a href="/pages/cookie-policy.html" class="btn btn--ghost btn--sm">Gestisci Preferenze</a>
+        <a href="/stomatologico-cremonese-/pages/cookie-policy.html" class="btn btn--ghost btn--sm">Gestisci Preferenze</a>
       </div>
     </div>
   </div>
 
-  <script src="/js/main.js"></script>
-  <script src="/js/cookie-consent.js"></script>
-  <script src="/js/booking.js"></script>
+  <script src="/stomatologico-cremonese-/js/main.js"></script>
+  <script src="/stomatologico-cremonese-/js/cookie-consent.js"></script>
+  <script src="/stomatologico-cremonese-/js/booking.js"></script>
 </body>
 </html>
